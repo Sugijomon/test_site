@@ -1,0 +1,14 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/shadow-ai-survey", "destination": "/shadow-ai-survey/index.html" },
+    { "source": "/routeai", "destination": "/routeai/index.html" },
+    { "source": "/aisa", "destination": "/aisa/index.html" },
+    { "source": "/hr-module", "destination": "/hr-module/index.html" },
+    { "source": "/ready-kit", "destination": "/ready-kit/index.html" },
+    { "source": "/over", "destination": "/over/index.html" },
+    { "source": "/testimonials", "destination": "/testimonials/index.html" },
+    { "source": "/insights", "destination": "/insights/index.html" }
+  ]
+}

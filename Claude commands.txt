@@ -1,0 +1,12 @@
+# 1. Ga naar de digidactics-site map (pas het pad aan naar waar jij hem hebt)
+cd ~/Downloads/digidactics-site
+
+# 2. Initieer git en koppel aan je repo
+git init
+git remote add origin https://github.com/Sugijomon/test_site.git
+
+# 3. Voeg alle bestanden toe en push
+git add .
+git commit -m "Initial site"
+git branch -M main
+git push -u origin main
