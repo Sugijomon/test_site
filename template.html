@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="light" lang="nl">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+  <!-- ═══════════════════════════════════════════════
+       STAP 1: Pas deze meta-tags aan per pagina
+  ═══════════════════════════════════════════════ -->
+  <title>Paginatitel | Digidactics</title>
+  <meta name="description" content="Korte beschrijving van deze pagina (max 160 tekens). Belangrijk voor SEO."/>
+  <meta property="og:title" content="Paginatitel | Digidactics"/>
+  <meta property="og:description" content="Zelfde als description hierboven."/>
+  <meta property="og:image" content="/assets/images/og-image.png"/>
+  <meta property="og:url" content="https://www.digidactics.nl/deze-pagina.html"/>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- ═══════════════════════════════════════════════
+       DESIGN TOKENS — wijzig hier NOOIT iets
+       Alle kleuren, fonts, radius zijn hier gedefinieerd
+  ═══════════════════════════════════════════════ -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            /* Primaire merkkleur */
+            "primary":                    "#00658b",
+            "on-primary":                 "#ffffff",
+            "primary-container":          "#00a1da",
+            "on-primary-container":       "#003348",
+            "primary-fixed":              "#c4e7ff",
+            "primary-fixed-dim":          "#7dd0ff",
+            "on-primary-fixed":           "#001e2d",
+            "on-primary-fixed-variant":   "#004c6a",
+
+            /* Secundaire kleur */
+            "secondary":                  "#396379",
+            "on-secondary":               "#ffffff",
+            "secondary-container":        "#bae6ff",
+            "on-secondary-container":     "#3d687d",
+            "secondary-fixed":            "#c1e8ff",
+            "secondary-fixed-dim":        "#a2cce5",
+            "on-secondary-fixed":         "#001e2b",
+            "on-secondary-fixed-variant": "#1f4c60",
+
+            /* Tertiaire / accent kleur */
+            "tertiary":                   "#b90360",
+            "on-tertiary":                "#ffffff",
+            "tertiary-container":         "#ff5898",
+            "on-tertiary-container":      "#62002f",
+            "tertiary-fixed":             "#ffd9e1",
+            "tertiary-fixed-dim":         "#ffb1c6",
+            "on-tertiary-fixed":          "#3f001c",
+            "on-tertiary-fixed-variant":  "#8e0048",
+
+            /* Oppervlakken */
+            "surface":                    "#f7fafc",
+            "surface-dim":                "#d7dadc",
+            "surface-bright":             "#f7fafc",
+            "surface-container-lowest":   "#ffffff",
+            "surface-container-low":      "#f1f4f6",
+            "surface-container":          "#ebeef0",
+            "surface-container-high":     "#e5e9eb",
+            "surface-container-highest":  "#e0e3e5",
+            "surface-variant":            "#e0e3e5",
+            "surface-tint":               "#00658b",
+            "background":                 "#f7fafc",
+
+            /* Tekst op oppervlakken */
+            "on-surface":                 "#181c1e",
+            "on-surface-variant":         "#3e484f",
+            "on-background":              "#181c1e",
+
+            /* Randen */
+            "outline":                    "#6e7880",
+            "outline-variant":            "#bdc8d0",
+
+            /* Overige */
+            "inverse-surface":            "#2d3133",
+            "inverse-on-surface":         "#eef1f3",
+            "inverse-primary":            "#7dd0ff",
+            "error":                      "#ba1a1a",
+            "on-error":                   "#ffffff",
+            "error-container":            "#ffdad6",
+            "on-error-container":         "#93000a",
+
+            /* Brand accenten (custom) */
+            "brand-green":                "#93C942",
+            "brand-green-accent":         "#5C9E1A",
+            "brand-green-light":          "#D9F0B0",
+          },
+          fontFamily: {
+            "headline": ["Manrope", "sans-serif"],
+            "body":     ["Inter", "sans-serif"],
+            "label":    ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg":      "2rem",
+            "xl":      "3rem",
+            "full":    "9999px",
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- ═══════════════════════════════════════════════
+       GLOBALE STIJLEN — kopieer dit naar elke pagina
+  ═══════════════════════════════════════════════ -->
+  <style>
+    body { min-height: max(884px, 100dvh); }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+
+    /* Achtergrond nebula glow — gebruik in hero secties */
+    .nebula-glow {
+      background:
+        radial-gradient(circle at 20% 30%, rgba(196, 231, 255, 0.45) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(186, 230, 255, 0.25) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 88, 152, 0.08) 0%, transparent 70%);
+    }
+
+    /* Glasmorphisme kaartje */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* Scroll-reveal animatie */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+</head>
+
+<body class="bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
+
+  <!-- ═══════════════════════════════════════════════
+       NAV — laat dit staan, wordt ingevuld door shared.js
+  ═══════════════════════════════════════════════ -->
+  <div id="nav-placeholder"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       STAP 2: Jouw paginainhoud hieronder
+       Zet al je <section> blokken hier binnen <main>
+  ═══════════════════════════════════════════════ -->
+  <main class="pt-28">
+
+    <!-- ──────────────────────────────────────────
+         VOORBEELD HERO SECTIE
+         Vervang de inhoud maar houd de structuur aan
+    ────────────────────────────────────────────── -->
+    <section class="relative pt-20 pb-32 px-6 overflow-hidden nebula-glow">
+
+      <!-- Decoratieve glow blob -->
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+
+      <div class="max-w-4xl mx-auto text-center space-y-8">
+
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-container text-on-secondary-container text-xs font-semibold tracking-wide uppercase">
+          Jouw badge tekst hier
+        </div>
+
+        <!-- Titel -->
+        <h1 class="font-headline font-extrabold text-5xl md:text-7xl tracking-tight text-primary leading-[1.1]">
+          Jouw paginatitel<br/>
+          <span class="text-primary-container">hier invullen</span>
+        </h1>
+
+        <!-- Subtekst -->
+        <p class="text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+          Jouw subtekst. Beschrijf in 2-3 zinnen wat deze pagina biedt en voor wie.
+        </p>
+
+        <!-- CTA knoppen -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <a href="#demo" class="bg-primary text-on-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#004c6a] hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/20 w-full sm:w-auto text-center">
+            Primaire CTA
+          </a>
+          <a href="#meer" class="border-2 border-primary/30 text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary/5 transition-all duration-300 w-full sm:w-auto text-center">
+            Secundaire CTA
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ──────────────────────────────────────────
+         VOEG HIER MEER SECTIES TOE
+         Kopieer secties uit shadow-ai-scan.html of eu-ai-act-ready-kit.html
+    ────────────────────────────────────────────── -->
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER — laat dit staan, wordt ingevuld door shared.js
+  ═══════════════════════════════════════════════ -->
+  <div id="footer-placeholder"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       SCRIPTS — altijd onderaan, in deze volgorde
+  ═══════════════════════════════════════════════ -->
+
+  <!-- Nav + footer injecteren -->
+  <script src="/components/shared.js"></script>
+
+  <!-- Scroll-reveal voor .reveal elementen -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- ═══════════════════════════════════════════════
+       STAP 3: Voeg hier pagina-specifieke scripts toe
+  ═══════════════════════════════════════════════ -->
+
+</body>
+</html>
