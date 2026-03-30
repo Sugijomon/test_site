@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-
-<html class="light" lang="nl"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
+<html class="light" lang="nl">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script src="./componenten/shared.js" defer></script>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
         theme: {
@@ -84,526 +87,778 @@
         },
       }
     </script>
-<style>
-      .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        display: inline-block;
-        line-height: 1;
-        text-transform: none;
-        letter-spacing: normal;
-        word-wrap: normal;
-        white-space: nowrap;
-        direction: ltr;
-      }
-      .nebula-glow {
-        background: radial-gradient(circle at 20% 30%, rgba(0, 101, 139, 0.15) 0%, transparent 40%),
-                    radial-gradient(circle at 80% 70%, rgba(185, 2, 95, 0.15) 0%, transparent 40%);
-      }
-      .primary-glow {
-        box-shadow: 0 0 40px rgba(0, 161, 218, 0.3);
-      }
-      .before-after-slider {
-        position: relative;
-        overflow: hidden;
-        user-select: none;
-      }
-      .before-after-slider input {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: 30;
-        top: 0;
-        left: 0;
-        opacity: 0;
-        cursor: ew-resize;
-      }
-      .slider-thumb {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 4px;
-        background: white;
-        z-index: 20;
-        pointer-events: none;
-      }
-      .slider-thumb::after {
-        content: '↔';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 40px;
-        height: 40px;
-        background: #00658B;
-        border: 4px solid white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-weight: bold;
-      }
-    </style>
-<style>
-      body {
-        min-height: max(884px, 100dvh);
-      }
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .nebula-glow {
+            background: radial-gradient(circle at 20% 30%, rgba(197, 231, 255, 0.4) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(187, 244, 104, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 50%, rgba(255, 217, 225, 0.1) 0%, transparent 70%);
+        }
+        .stippel-line {
+            background-image: radial-gradient(circle, #70787f 1px, transparent 1px);
+            background-size: 1px 12px;
+            background-repeat: repeat-y;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
     </style>
 </head>
-<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
-<!-- Top Navigation Anchor -->
-<nav class="fixed top-0 w-full z-50 bg-[#f7fafc]/70 dark:bg-[#0f172a]/70 backdrop-blur-xl flex items-center justify-between px-6 py-4 w-full">
-<div class="text-lg font-black text-[#00658B] dark:text-[#c5e7ff] tracking-tighter font-headline">EU AI ACT READY</div>
-<div class="hidden md:flex gap-8 items-center font-label">
-<a class="text-[#00658B] dark:text-[#c5e7ff] hover:text-[#446900] transition-colors" href="#">Overview</a>
-<a class="text-slate-500 dark:text-slate-400 hover:text-[#446900] transition-colors" href="#">Modules</a>
-<a class="text-slate-500 dark:text-slate-400 hover:text-[#446900] transition-colors" href="#">Timeline</a>
-<a class="text-slate-500 dark:text-slate-400 hover:text-[#446900] transition-colors" href="#">Pricing</a>
-</div>
-<div class="flex items-center gap-2 text-[#00658B]">
-<span class="material-symbols-outlined">security</span>
-</div>
-</nav>
-<!-- 1. Hero Section -->
-<header class="relative pt-32 pb-12 px-6 nebula-glow min-h-[707px] flex flex-col items-center justify-center text-center overflow-hidden">
-<div class="mb-4 bg-tertiary-container text-on-tertiary px-4 py-1 rounded-full text-xs font-label font-bold tracking-widest uppercase">
+<body class="bg-surface font-body text-on-surface">
+
+    <shared-header></shared-header>
+
+    <header class="relative pt-32 pb-20 px-6 nebula-glow min-h-[707px] flex flex-col items-center justify-center text-center overflow-hidden">
+        <div class="mb-4 bg-tertiary-container text-on-tertiary px-4 py-1 rounded-full text-xs font-label font-bold tracking-widest uppercase">
             Product Lancering 2024
         </div>
-<h1 class="font-headline font-extrabold text-5xl md:text-7xl lg:text-8xl tracking-tight text-primary max-w-5xl leading-[1.1]">
+        <h1 class="font-headline font-extrabold text-5xl md:text-7xl lg:text-8xl tracking-tight text-primary max-w-5xl leading-[1.1]">
             Niet alleen compliant. <br/>
-<span class="text-primary-container">Aantoonbaar in controle.</span>
-</h1>
-<p class="mt-8 text-on-surface-variant text-lg md:text-xl max-w-2xl font-body leading-relaxed">
+            <span class="text-primary-container">Aantoonbaar in controle.</span>
+        </h1>
+        <p class="mt-8 text-on-surface-variant text-lg md:text-xl max-w-2xl font-body leading-relaxed">
             Navigeer door de complexiteit van de EU AI Act met onze bewezen 6-maanden routekaart. Van Shadow AI detectie tot volledige governance certificering.
         </p>
-<div class="mt-12 flex flex-col sm:flex-row gap-4">
-<button class="bg-primary text-on-primary px-10 py-5 rounded-full font-headline font-bold text-lg hover:bg-primary-container transition-all scale-100 hover:scale-105 shadow-xl shadow-primary/20">
+        <div class="mt-12 flex flex-col sm:flex-row gap-4">
+            <button class="bg-primary text-on-primary px-10 py-5 rounded-full font-headline font-bold text-lg hover:bg-primary-container transition-all scale-100 hover:scale-105 shadow-xl shadow-primary/20">
                 Start de Ready Kit
             </button>
-<button class="bg-surface-container-highest text-on-surface px-10 py-5 rounded-full font-headline font-bold text-lg hover:bg-surface-dim transition-all">
+            <button class="bg-surface-container-highest text-on-surface px-10 py-5 rounded-full font-headline font-bold text-lg hover:bg-surface-dim transition-all">
                 Bekijk demo
             </button>
-</div>
-<!-- Decorative Glow Element -->
-<div class="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary-container opacity-20 blur-[120px] rounded-full"></div>
-</header>
-<!-- Typographic Marquee -->
-<div class="bg-primary overflow-hidden py-6 border-y border-white/10 relative z-10">
-<div class="flex whitespace-nowrap animate-marquee">
-<div class="flex items-center gap-12 text-white font-headline font-black text-2xl tracking-tighter uppercase px-6">
-<span>Artikel 4 is van kracht</span>
-<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
-<span>2 Februari 2025</span>
-<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
-<span>EU AI Act Ready</span>
-<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
-<span>Shadow AI Scan</span>
-<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
-<span>RouteAI Governance</span>
-<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
-</div>
-<div class="flex items-center gap-12 text-white font-headline font-black text-2xl tracking-tighter uppercase px-6">
-<span>Artikel 4 is van kracht</span>
-<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
-<span>2 Februari 2025</span>
-<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
-<span>EU AI Act Ready</span>
-<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
-<span>Shadow AI Scan</span>
-<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
-<span>RouteAI Governance</span>
-<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
-</div>
-</div>
-</div>
-<main>
-<!-- Before/After Slider Section -->
-<section class="py-24 px-6 bg-surface-container-low">
-<div class="max-w-7xl mx-auto">
-<div class="text-center mb-16">
-<div class="bg-primary-container text-white px-4 py-1 rounded-full text-xs font-label font-bold tracking-widest uppercase inline-block mb-4">
+        </div>
+        <div class="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary-container opacity-20 blur-[120px] rounded-full"></div>
+    </header>
+
+    <div class="bg-primary overflow-hidden py-6 border-y border-white/10 relative z-10">
+        <div class="flex whitespace-nowrap animate-marquee">
+            <div class="flex items-center gap-12 text-white font-headline font-black text-2xl tracking-tighter uppercase px-6">
+                <span>Artikel 4 is van kracht</span>
+                <span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+                <span>2 Februari 2025</span>
+                <span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+                <span>EU AI Act Ready</span>
+                <span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+                <span>Shadow AI Scan</span>
+                <span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+                <span>RouteAI Governance</span>
+                <span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+            </div>
+            <div class="flex items-center gap-12 text-white font-headline font-black text-2xl tracking-tighter uppercase px-6">
+                <span>Artikel 4 is van kracht</span>
+                <span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+                <span>2 Februari 2025</span>
+                <span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+                <span>EU AI Act Ready</span>
+                <span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+                <span>Shadow AI Scan</span>
+                <span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+                <span>RouteAI Governance</span>
+                <span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="px-6 mb-32 mt-16">
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-12">
+                    <div class="bg-tertiary-container text-on-tertiary px-3 py-1 rounded-full text-[10px] font-bold inline-block mb-2 uppercase tracking-widest">DOELGROEP</div>
+                    <h2 class="text-4xl font-headline font-extrabold text-primary">Voor wie is de Curator?</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="md:col-span-2 bg-surface-container-lowest p-8 rounded-xl shadow-sm flex flex-col justify-between group">
+                        <div>
+                            <span class="material-symbols-outlined text-secondary text-4xl mb-6 block" data-icon="policy">policy</span>
+                            <h3 class="text-2xl font-headline font-bold mb-4">DPO & Compliance Officers</h3>
+                            <p class="text-on-surface-variant leading-relaxed">Centraliseer alle AI-registering en risico-assessments in één redactioneel dashboard zonder chaos.</p>
+                        </div>
+                        <img alt="Compliance dashboard" class="w-full h-40 object-cover rounded-lg mt-8 opacity-80 group-hover:opacity-100 transition-opacity" data-alt="close-up of a high-end digital compliance dashboard with soft blue lighting and clean data visualizations" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo4ldU4uuZNEz0FpRofg7zL_5nR1KeBDOBsy9C-uzFYb3T2ahFQFkbFGV2qwGe3Nc0YBfvjDZD_0gB7iIrLVuhndeeocOHl1UcmPz-1oW3-4ZH_ghW3dBwmDSwQ5G_wTYeCem_WQ5URTBM77ETOleroijG3yWjieWv6sd1GMorrGp7lplzg2ZLEifw1g--6FRaonFgJCE8S4UYiFr7wCBvhmekf_WhcGyuH7IhmtevI6kV9Ktx7GRkbfIIaXOif7sbrZxKam4ENy8"/>
+                    </div>
+                    <div class="bg-surface-container-low p-8 rounded-xl flex flex-col">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-6 block" data-icon="corporate_fare">corporate_fare</span>
+                        <h3 class="text-xl font-headline font-bold mb-4">Directie & Bestuur</h3>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">Ontvang strategische rapportages die de brug slaan tussen techniek en wetgeving.</p>
+                    </div>
+                    <div class="bg-primary text-on-primary p-8 rounded-xl flex flex-col">
+                        <span class="material-symbols-outlined text-on-primary text-4xl mb-6 block" data-icon="groups">groups</span>
+                        <h3 class="text-xl font-headline font-bold mb-4">HR & Talent</h3>
+                        <p class="text-sm opacity-80 leading-relaxed">Beheer de ethische implicaties van AI in werving en selectie conform de EU AI Act.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="px-6 mb-16">
+            <div class="max-w-6xl mx-auto bg-surface-container-low rounded-lg p-8">
+                <div class="mb-2">
+                    <span class="text-tertiary font-bold text-xs uppercase tracking-widest">DEADLINE ALERT</span>
+                </div>
+                <h2 class="text-2xl font-extrabold text-primary mb-4 leading-tight">
+                    Wist je dat Artikel 4 al van kracht is?
+                </h2>
+                <div class="flex items-center gap-4 bg-surface-container-lowest p-6 rounded-lg border-l-4 border-tertiary">
+                    <div class="text-tertiary">
+                    </div>
+                </div>
+                <p class="mt-6 text-on-surface-variant leading-relaxed">
+                    Bedrijven moeten nu aantonen dat hun personeel over de juiste AI-kennis beschikt. Wachten is geen optie meer.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 max-w-7xl mx-auto">
+            <div class="bg-surface-container-lowest rounded-xl p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 shadow-[0_20px_60px_rgba(0,0,0,0.03)] border-l-8 border-tertiary">
+                <div class="flex-1">
+                    <div class="flex items-center gap-4 mb-6">
+                        <span class="material-symbols-outlined text-tertiary text-5xl" style="font-variation-settings: 'FILL' 1;">gavel</span>
+                        <div class="h-px flex-1 bg-outline-variant opacity-30"></div>
+                    </div>
+                    <h2 class="font-headline font-extrabold text-4xl text-on-surface mb-6">Artikel 4 is al van kracht.</h2>
+                    <p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                        De klok tikt. Op 2 februari 2025 vervalt de overgangstermijn voor AI-geletterdheid. Organisaties die dan niet voldoen aan de basisvereisten riskeren niet alleen boetes, maar ook reputatieschade en operationele stilstand.
+                    </p>
+                    <div class="inline-flex items-center gap-3 text-tertiary font-bold">
+                        <span class="material-symbols-outlined">schedule</span>
+                        Deadline: 2 februari 2025
+                    </div>
+                </div>
+                <div class="flex-1 w-full relative">
+                    <img alt="Juridische urgentie" class="rounded-lg w-full h-[350px] object-cover" data-alt="Close-up of a wooden judge's gavel on a marble desk with dramatic warm lighting and soft bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoW_VWIMrBwYMxuDaWVrAw6VI5VTIjnEkoWqkoiMjdWQ29KQ6RXofjMgxbmNI3IQfx82v1J3DCArKkvpKcFwTKgg7b9yFJIr5Kb_p4G2a6BPON24E1zTbPTBnz2iUV7uPlrIddGxeYvXY6wa49MKYacJPGTu3D_K3Zi6up-I61G1Q6VqjqQU3KI_tIlaZKvbMdzl8sR8qg9xTR_8m_4KsTp1_h-DYxb14iupSiy1AUN3rSVeAa3e8_BQhSEdqwz4Mb2tLO3GZ6va8"/>
+                    <div class="absolute -top-4 -right-4 bg-tertiary text-on-tertiary p-6 rounded-lg shadow-xl font-headline font-black text-2xl">
+                        D-180
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="relative z-10 -mt-20 px-4 max-w-7xl mx-auto">
+            <div class="bg-surface-container-lowest/70 backdrop-blur-2xl p-6 rounded-lg shadow-[0_40px_60px_rgba(0,76,106,0.1)] flex items-center justify-between border border-white/20">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-tertiary-container text-white rounded-full flex items-center justify-center">
+                        <span class="material-symbols-outlined">timer</span>
+                    </div>
+                    <div>
+                        <div class="text-[10px] font-bold text-tertiary-container uppercase tracking-wider">Artikel 4 Deadline</div>
+                        <div class="text-xl font-headline font-extrabold text-primary">2 februari 2025</div>
+                    </div>
+                </div>
+                <div class="animate-pulse bg-tertiary-fixed w-3 h-3 rounded-full shadow-[0_0_12px_rgba(185,2,95,0.5)]"></div>
+            </div>
+        </div>
+
+        <section class="space-y-6 max-w-7xl mx-auto py-24 px-6">
+            <div class="text-center space-y-2">
+                <div class="inline-block px-3 py-1 rounded-full bg-tertiary-container text-on-tertiary text-[10px] font-bold uppercase tracking-widest">
+                    De Methodiek
+                </div>
+                <h2 class="text-3xl font-headline font-extrabold text-primary px-4">Het Rijbewijs-principe</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-surface-container-lowest p-8 rounded-lg space-y-4 shadow-sm">
+                    <div class="w-14 h-14 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">badge</span>
+                    </div>
+                    <h3 class="text-xl font-headline font-extrabold">Stap 1: AISA Certificering</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">
+                        Voordat medewerkers AI-tools gebruiken, doorlopen ze de AI Safety & Awareness (AISA) training. Dit is hun digitale rijbewijs.
+                    </p>
+                </div>
+                <div class="bg-surface-container-lowest p-8 rounded-lg space-y-4 shadow-sm border-2 border-primary-fixed">
+                    <div class="w-14 h-14 bg-secondary text-on-secondary rounded-full flex items-center justify-center">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">key</span>
+                    </div>
+                    <h3 class="text-xl font-headline font-extrabold">Stap 2: RouteAI Toegang</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">
+                        Pas na certificering wordt de toegang tot bedrijfs-AI geactiveerd via de RouteAI gateway. Veilig, gecontroleerd en compliant.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 bg-surface-container-low">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-12">
+                    <div class="bg-tertiary-container text-on-tertiary px-4 py-1 rounded-full text-xs font-label font-bold tracking-widest uppercase inline-block mb-4">
+                        Modulair Systeem
+                    </div>
+                    <h2 class="font-headline font-extrabold text-4xl text-primary">Drie Pijlers van Compliance</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                    <div class="md:col-span-7 bg-[#00658B] text-white rounded-xl p-10 overflow-hidden relative group">
+                        <div class="relative z-10 h-full flex flex-col">
+                            <span class="material-symbols-outlined text-5xl mb-6">visibility_off</span>
+                            <h3 class="font-headline font-bold text-3xl mb-4">Shadow AI Scan</h3>
+                            <p class="text-primary-fixed leading-relaxed max-w-md mb-8">Breng verborgen AI-gebruik in kaart. Ontdek welke tools uw medewerkers al gebruiken voordat ze een risico vormen voor uw data-integriteit.</p>
+                            <div class="mt-auto">
+                                <button class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-6 py-3 rounded-full hover:bg-white/20 transition-all">Start de Scan</button>
+                            </div>
+                        </div>
+                        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-[#00a1da] opacity-20 blur-[60px] rounded-full group-hover:scale-125 transition-transform duration-700"></div>
+                    </div>
+                    <div class="md:col-span-5 bg-tertiary-container text-on-tertiary rounded-xl p-10 flex flex-col justify-between border-t-8 border-tertiary">
+                        <div>
+                            <span class="material-symbols-outlined text-5xl mb-6">school</span>
+                            <h3 class="font-headline font-bold text-3xl mb-4">AI Literacy</h3>
+                            <p class="text-on-tertiary opacity-80 leading-relaxed mb-6">Voldoe aan Artikel 4. Train uw team in verantwoord AI-gebruik en herkenning van risico's.</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">check_circle</span> 12 Leerpaden</div>
+                            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">check_circle</span> Certificering</div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-12 bg-secondary text-white rounded-xl p-10 flex flex-col md:flex-row items-center gap-12 overflow-hidden">
+                        <div class="flex-1">
+                            <span class="material-symbols-outlined text-5xl mb-6">account_tree</span>
+                            <h3 class="font-headline font-bold text-3xl mb-4">Dynamic Governance</h3>
+                            <p class="text-secondary-fixed leading-relaxed mb-8">Een levend framework dat meegroeit met de wetgeving. Geen statische documenten, maar een actieve workflow voor risicobeoordeling en documentatie.</p>
+                            <button class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-full font-bold">Configureer Framework</button>
+                        </div>
+                        <div class="flex-1 grid grid-cols-2 gap-4">
+                            <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+                                <div class="text-4xl font-headline font-black mb-2">100%</div>
+                                <div class="text-xs uppercase tracking-widest opacity-70">Audit Ready</div>
+                            </div>
+                            <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+                                <div class="text-4xl font-headline font-black mb-2">24/7</div>
+                                <div class="text-xs uppercase tracking-widest opacity-70">Monitoring</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 bg-surface-container-low">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <div class="bg-primary-container text-white px-4 py-1 rounded-full text-xs font-label font-bold tracking-widest uppercase inline-block mb-4">
                         De Transformatie
                     </div>
-<h2 class="font-headline font-extrabold text-4xl text-primary mb-4">Breng Orde in de Chaos</h2>
-<p class="text-on-surface-variant max-w-2xl mx-auto">Versleep de slider om te zien hoe wij Shadow AI risico's transformeren naar een gestructureerd governance framework.</p>
-</div>
-<div class="relative w-full max-w-5xl mx-auto aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl border-4 border-white before-after-slider group" id="slider-container">
-<!-- Before Content (Shadow AI Chaos) -->
-<div class="absolute inset-0 bg-[#001e2d] flex items-center justify-center p-12 overflow-hidden">
-<div class="grid grid-cols-4 md:grid-cols-6 gap-4 opacity-40 blur-[2px]">
-<!-- Mock chaotic nodes -->
-<div class="w-20 h-20 bg-red-500/20 rounded-lg flex items-center justify-center border border-red-500/50"><span class="material-symbols-outlined text-red-400">warning</span></div>
-<div class="w-24 h-16 bg-white/5 rounded-lg border border-white/20"></div>
-<div class="w-16 h-16 bg-yellow-500/20 rounded-full border border-yellow-500/50"></div>
-<div class="w-20 h-20 bg-white/5 rounded-lg border border-white/20"></div>
-<div class="w-12 h-12 bg-red-500/20 rounded-lg border border-red-500/50"></div>
-<div class="w-32 h-24 bg-white/5 rounded-lg border border-white/20"></div>
-<div class="w-20 h-20 bg-white/5 rounded-lg border border-white/20"></div>
-<div class="w-24 h-24 bg-red-500/20 rounded-lg border border-red-500/50"></div>
-<div class="w-16 h-16 bg-white/5 rounded-lg border border-white/20"></div>
-</div>
-<div class="absolute inset-0 flex items-center justify-center text-center">
-<div class="bg-black/40 backdrop-blur-md px-8 py-4 rounded-xl border border-white/10">
-<h4 class="text-white font-headline font-bold text-3xl">Shadow AI Chaos</h4>
-<p class="text-red-300 text-sm mt-1 uppercase tracking-widest font-bold">Ongecontroleerd &amp; Risicovol</p>
-</div>
-</div>
-</div>
-<!-- After Content (Aantoonbaar in Controle) -->
-<div class="absolute inset-0 bg-primary flex items-center justify-center p-12 transition-all duration-0" id="after-img" style="clip-path: inset(0 0 0 50%)">
-<div class="grid grid-cols-4 md:grid-cols-6 gap-6 w-full max-w-4xl opacity-60">
-<!-- Mock structured nodes -->
-<div class="w-20 h-20 bg-secondary-container/20 rounded-xl flex items-center justify-center border-2 border-secondary-container"><span class="material-symbols-outlined text-secondary-container">shield</span></div>
-<div class="w-20 h-20 bg-secondary-container/20 rounded-xl flex items-center justify-center border-2 border-secondary-container"><span class="material-symbols-outlined text-secondary-container">verified</span></div>
-<div class="w-20 h-20 bg-secondary-container/20 rounded-xl flex items-center justify-center border-2 border-secondary-container"><span class="material-symbols-outlined text-secondary-container">task_alt</span></div>
-<div class="w-20 h-20 bg-secondary-container/20 rounded-xl flex items-center justify-center border-2 border-secondary-container"><span class="material-symbols-outlined text-secondary-container">rule</span></div>
-<div class="w-20 h-20 bg-secondary-container/20 rounded-xl flex items-center justify-center border-2 border-secondary-container"><span class="material-symbols-outlined text-secondary-container">fact_check</span></div>
-</div>
-<div class="absolute inset-0 flex items-center justify-center text-center">
-<div class="bg-[#004c6a]/80 backdrop-blur-xl px-8 py-4 rounded-xl border-2 border-secondary-container/50">
-<h4 class="text-white font-headline font-bold text-3xl">Aantoonbaar in Controle</h4>
-<p class="text-secondary-container text-sm mt-1 uppercase tracking-widest font-bold">Gecertificeerd &amp; Veilig</p>
-</div>
-</div>
-</div>
-<!-- Slider Input -->
-<input max="100" min="0" oninput="moveSlider(this.value)" type="range" value="50"/>
-<div class="slider-thumb" id="slider-handle" style="left: 50%"></div>
-</div>
-<script>
+                    <h2 class="font-headline font-extrabold text-4xl text-primary mb-4">Breng Orde in de Chaos</h2>
+                    <p class="text-on-surface-variant max-w-2xl mx-auto">Versleep de slider naar rechts om te zien hoe wij Shadow AI risico's transformeren naar een gestructureerd governance framework.</p>
+                </div>
+                
+                <div class="relative w-full max-w-5xl mx-auto aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl border-4 border-white before-after-slider group" id="slider-container">
+                    
+                    <div class="absolute inset-0 bg-[#001e2d] flex items-center justify-center p-12 overflow-hidden">
+                        <div class="grid grid-cols-4 md:grid-cols-6 gap-4 w-full max-w-4xl opacity-40 blur-[2px]">
+                            <div class="w-20 h-20 bg-red-500/20 rounded-lg flex items-center justify-center border border-red-500/50"><span class="material-symbols-outlined text-red-400">warning</span></div>
+                            <div class="w-24 h-16 bg-white/5 rounded-lg border border-white/20"></div>
+                            <div class="w-16 h-16 bg-yellow-500/20 rounded-full border border-yellow-500/50"></div>
+                            <div class="w-20 h-20 bg-white/5 rounded-lg border border-white/20"></div>
+                            <div class="w-12 h-12 bg-red-500/20 rounded-lg border border-red-500/50"></div>
+                            <div class="w-32 h-24 bg-white/5 rounded-lg border border-white/20"></div>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center text-center">
+                            <div class="bg-black/40 backdrop-blur-md px-8 py-4 rounded-xl border border-white/10 transition-all">
+                                <h4 class="text-white font-headline font-bold text-3xl">Shadow AI Chaos</h4>
+                                <p class="text-red-300 text-sm mt-1 uppercase tracking-widest font-bold">Ongecontroleerd & Risicovol</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="absolute inset-0 bg-primary flex items-center justify-center p-12" id="after-img" style="clip-path: inset(0 75% 0 0)">
+                        <div class="grid grid-cols-4 md:grid-cols-6 gap-6 w-full max-w-4xl opacity-60">
+                            <div class="w-20 h-20 bg-secondary-container/20 rounded-xl flex items-center justify-center border-2 border-secondary-container"><span class="material-symbols-outlined text-secondary-container">shield</span></div>
+                            <div class="w-20 h-20 bg-secondary-container/20 rounded-xl flex items-center justify-center border-2 border-secondary-container"><span class="material-symbols-outlined text-secondary-container">verified</span></div>
+                            <div class="w-20 h-20 bg-secondary-container/20 rounded-xl flex items-center justify-center border-2 border-secondary-container"><span class="material-symbols-outlined text-secondary-container">task_alt</span></div>
+                            <div class="w-20 h-20 bg-secondary-container/20 rounded-xl flex items-center justify-center border-2 border-secondary-container"><span class="material-symbols-outlined text-secondary-container">rule</span></div>
+                            <div class="w-20 h-20 bg-secondary-container/20 rounded-xl flex items-center justify-center border-2 border-secondary-container"><span class="material-symbols-outlined text-secondary-container">fact_check</span></div>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center text-center">
+                            <div class="bg-[#004c6a]/80 backdrop-blur-xl px-8 py-4 rounded-xl border-2 border-secondary-container/50 transition-all">
+                                <h4 class="text-white font-headline font-bold text-3xl">Aantoonbaar in Controle</h4>
+                                <p class="text-secondary-container text-sm mt-1 uppercase tracking-widest font-bold">Gecertificeerd & Veilig</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_15px_rgba(0,0,0,0.8)] z-20 pointer-events-none flex justify-center items-center -ml-[2px]" id="slider-handle" style="left: 25%">
+                        <div class="w-12 h-12 bg-white rounded-full shadow-2xl flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined font-bold text-[24px]">chevron_right</span>
+                        </div>
+                    </div>
+
+                    <input type="range" min="0" max="100" value="25" oninput="moveSlider(this.value)" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30 m-0 p-0" />
+                    
+                </div>
+                
+                <script>
                     function moveSlider(value) {
                         const afterImg = document.getElementById('after-img');
                         const sliderHandle = document.getElementById('slider-handle');
-                        afterImg.style.clipPath = `inset(0 0 0 ${value}%)`;
+                        
+                        afterImg.style.clipPath = `inset(0 ${100 - value}% 0 0)`;
                         sliderHandle.style.left = `${value}%`;
                     }
                 </script>
-</div>
-</section>
-<!-- 2. Waarom Nu Section -->
-<section class="py-24 px-6 max-w-7xl mx-auto">
-<div class="bg-surface-container-lowest rounded-xl p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 shadow-[0_20px_60px_rgba(0,0,0,0.03)] border-l-8 border-tertiary">
-<div class="flex-1">
-<div class="flex items-center gap-4 mb-6">
-<span class="material-symbols-outlined text-tertiary text-5xl" style="font-variation-settings: 'FILL' 1;">gavel</span>
-<div class="h-px flex-1 bg-outline-variant opacity-30"></div>
-</div>
-<h2 class="font-headline font-extrabold text-4xl text-on-surface mb-6">Artikel 4 is al van kracht.</h2>
-<p class="text-on-surface-variant text-lg leading-relaxed mb-8">
-                        De klok tikt. Op 2 februari 2025 vervalt de overgangstermijn voor AI-geletterdheid. Organisaties die dan niet voldoen aan de basisvereisten riskeren niet alleen boetes, maar ook reputatieschade en operationele stilstand.
-                    </p>
-<div class="inline-flex items-center gap-3 text-tertiary font-bold">
-<span class="material-symbols-outlined">schedule</span>
-                        Deadline: 2 februari 2025
+            </div>
+        </section>
+
+        <section class="py-24 px-6">
+            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+                <div class="flex-1 order-2 lg:order-1">
+                    <div class="relative bg-surface-container rounded-lg p-6 shadow-2xl">
+                        <div class="bg-surface-container-lowest rounded-md p-4 mb-4 flex items-center justify-between opacity-40 grayscale">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-slate-200"></div>
+                                <div class="space-y-2">
+                                    <div class="h-2 w-24 bg-slate-200 rounded"></div>
+                                    <div class="h-2 w-16 bg-slate-100 rounded"></div>
+                                </div>
+                            </div>
+                            <div class="h-8 w-8 bg-slate-200 rounded-full"></div>
+                        </div>
+                        <div class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-primary/10 backdrop-blur-sm rounded-lg border-2 border-primary border-dashed">
+                            <div class="bg-primary text-white p-6 rounded-full shadow-2xl mb-6 scale-125">
+                                <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">lock</span>
+                            </div>
+                            <h4 class="font-headline font-bold text-xl text-primary">AI Gebruik Geblokkeerd</h4>
+                            <p class="text-on-surface-variant text-sm text-center px-8 mt-2">U heeft nog geen AI-Certificering behaald. Toegang tot corporate AI-gateways is beperkt.</p>
+                        </div>
+                        <div class="space-y-4 opacity-40 grayscale">
+                            <div class="h-20 bg-surface-container-lowest rounded-md w-full"></div>
+                            <div class="h-20 bg-surface-container-lowest rounded-md w-full"></div>
+                        </div>
                     </div>
-</div>
-<div class="flex-1 w-full relative">
-<img alt="Juridische urgentie" class="rounded-lg w-full h-[350px] object-cover" data-alt="Close-up of a wooden judge's gavel on a marble desk with dramatic warm lighting and soft bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoW_VWIMrBwYMxuDaWVrAw6VI5VTIjnEkoWqkoiMjdWQ29KQ6RXofjMgxbmNI3IQfx82v1J3DCArKkvpKcFwTKgg7b9yFJIr5Kb_p4G2a6BPON24E1zTbPTBnz2iUV7uPlrIddGxeYvXY6wa49MKYacJPGTu3D_K3Zi6up-I61G1Q6VqjqQU3KI_tIlaZKvbMdzl8sR8qg9xTR_8m_4KsTp1_h-DYxb14iupSiy1AUN3rSVeAa3e8_BQhSEdqwz4Mb2tLO3GZ6va8"/>
-<div class="absolute -top-4 -right-4 bg-tertiary text-on-tertiary p-6 rounded-lg shadow-xl font-headline font-black text-2xl">
-                        D-180
-                    </div>
-</div>
-</div>
-</section>
-<!-- 3. Bento Grid Section -->
-<section class="py-24 px-6 bg-surface-container-low">
-<div class="max-w-7xl mx-auto">
-<div class="mb-12">
-<div class="bg-tertiary-container text-on-tertiary px-4 py-1 rounded-full text-xs font-label font-bold tracking-widest uppercase inline-block mb-4">
-                        Modulair Systeem
-                    </div>
-<h2 class="font-headline font-extrabold text-4xl text-primary">Drie Pijlers van Compliance</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-<!-- Shadow AI Card -->
-<div class="md:col-span-7 bg-[#00658B] text-white rounded-xl p-10 overflow-hidden relative group">
-<div class="relative z-10 h-full flex flex-col">
-<span class="material-symbols-outlined text-5xl mb-6">visibility_off</span>
-<h3 class="font-headline font-bold text-3xl mb-4">Shadow AI Scan</h3>
-<p class="text-primary-fixed leading-relaxed max-w-md mb-8">Breng verborgen AI-gebruik in kaart. Ontdek welke tools uw medewerkers al gebruiken voordat ze een risico vormen voor uw data-integriteit.</p>
-<div class="mt-auto">
-<button class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-6 py-3 rounded-full hover:bg-white/20 transition-all">Start de Scan</button>
-</div>
-</div>
-<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-[#00a1da] opacity-20 blur-[60px] rounded-full group-hover:scale-125 transition-transform duration-700"></div>
-</div>
-<!-- Literacy Card -->
-<div class="md:col-span-5 bg-tertiary-container text-on-tertiary rounded-xl p-10 flex flex-col justify-between border-t-8 border-tertiary">
-<div>
-<span class="material-symbols-outlined text-5xl mb-6">school</span>
-<h3 class="font-headline font-bold text-3xl mb-4">AI Literacy</h3>
-<p class="text-on-tertiary opacity-80 leading-relaxed mb-6">Voldoe aan Artikel 4. Train uw team in verantwoord AI-gebruik en herkenning van risico's.</p>
-</div>
-<div class="space-y-3">
-<div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">check_circle</span> 12 Leerpaden</div>
-<div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">check_circle</span> Certificering</div>
-</div>
-</div>
-<!-- Governance Card -->
-<div class="md:col-span-12 bg-secondary text-white rounded-xl p-10 flex flex-col md:flex-row items-center gap-12 overflow-hidden">
-<div class="flex-1">
-<span class="material-symbols-outlined text-5xl mb-6">account_tree</span>
-<h3 class="font-headline font-bold text-3xl mb-4">Dynamic Governance</h3>
-<p class="text-secondary-fixed leading-relaxed mb-8">Een levend framework dat meegroeit met de wetgeving. Geen statische documenten, maar een actieve workflow voor risicobeoordeling en documentatie.</p>
-<button class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-full font-bold">Configureer Framework</button>
-</div>
-<div class="flex-1 grid grid-cols-2 gap-4">
-<div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
-<div class="text-4xl font-headline font-black mb-2">100%</div>
-<div class="text-xs uppercase tracking-widest opacity-70">Audit Ready</div>
-</div>
-<div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
-<div class="text-4xl font-headline font-black mb-2">24/7</div>
-<div class="text-xs uppercase tracking-widest opacity-70">Monitoring</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- 4. Rijbewijs-gate Section -->
-<section class="py-24 px-6">
-<div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
-<div class="flex-1 order-2 lg:order-1">
-<div class="relative bg-surface-container rounded-lg p-6 shadow-2xl">
-<div class="bg-surface-container-lowest rounded-md p-4 mb-4 flex items-center justify-between opacity-40 grayscale">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-full bg-slate-200"></div>
-<div class="space-y-2">
-<div class="h-2 w-24 bg-slate-200 rounded"></div>
-<div class="h-2 w-16 bg-slate-100 rounded"></div>
-</div>
-</div>
-<div class="h-8 w-8 bg-slate-200 rounded-full"></div>
-</div>
-<div class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-primary/10 backdrop-blur-sm rounded-lg border-2 border-primary border-dashed">
-<div class="bg-primary text-white p-6 rounded-full shadow-2xl mb-6 scale-125">
-<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">lock</span>
-</div>
-<h4 class="font-headline font-bold text-xl text-primary">AI Gebruik Geblokkeerd</h4>
-<p class="text-on-surface-variant text-sm text-center px-8 mt-2">U heeft nog geen AI-Certificering behaald. Toegang tot corporate AI-gateways is beperkt.</p>
-</div>
-<div class="space-y-4 opacity-40 grayscale">
-<div class="h-20 bg-surface-container-lowest rounded-md w-full"></div>
-<div class="h-20 bg-surface-container-lowest rounded-md w-full"></div>
-</div>
-</div>
-</div>
-<div class="flex-1 order-1 lg:order-2">
-<div class="bg-tertiary-container text-on-tertiary px-4 py-1 rounded-full text-xs font-label font-bold tracking-widest uppercase inline-block mb-4">
+                </div>
+                <div class="flex-1 order-1 lg:order-2">
+                    <div class="bg-tertiary-container text-on-tertiary px-4 py-1 rounded-full text-xs font-label font-bold tracking-widest uppercase inline-block mb-4">
                         Het AI-Rijbewijs
                     </div>
-<h2 class="font-headline font-extrabold text-4xl text-primary mb-6">Geen Certificering, Geen Productie.</h2>
-<p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                    <h2 class="font-headline font-extrabold text-4xl text-primary mb-6">Geen Certificering, Geen Productie.</h2>
+                    <p class="text-on-surface-variant text-lg leading-relaxed mb-8">
                         Wij implementeren de 'Rijbewijs-gate'. Alleen medewerkers die de geaccrediteerde AI Literacy training hebben voltooid, krijgen technische toegang tot uw beveiligde AI-omgeving. Dit minimaliseert menselijke fouten en garandeert juridische afdekking vanaf dag één.
                     </p>
-<ul class="space-y-4 font-label font-semibold text-primary">
-<li class="flex items-center gap-3"><span class="material-symbols-outlined">verified_user</span> Automatische SSO-integratie</li>
-<li class="flex items-center gap-3"><span class="material-symbols-outlined">verified_user</span> Jaarlijkse kennisherhaling</li>
-<li class="flex items-center gap-3"><span class="material-symbols-outlined">verified_user</span> Volledige audit-trail voor de AP</li>
-</ul>
-</div>
-</div>
-</section>
-<!-- 5. Verticale Tijdlijn Section -->
-<section class="py-24 px-6 bg-surface-container-low overflow-hidden">
-<div class="max-w-4xl mx-auto">
-<div class="text-center mb-16">
-<h2 class="font-headline font-extrabold text-4xl text-primary">Uw Route naar Compliance</h2>
-<p class="text-on-surface-variant mt-4">Van snelle scan naar duurzame governance.</p>
-</div>
-<div class="relative">
-<!-- The Dotted Connector -->
-<div class="absolute left-6 top-0 bottom-0 w-1 border-l-2 border-dotted border-primary-container opacity-30"></div>
-<!-- Step 1 -->
-<div class="relative pl-16 mb-20">
-<div class="absolute left-0 top-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold z-10 shadow-lg">01</div>
-<div>
-<span class="text-sm font-label font-bold text-primary-container tracking-widest uppercase">Eerste 90 Minuten</span>
-<h4 class="font-headline font-bold text-2xl mt-1 mb-3">De Shadow AI Scan</h4>
-<p class="text-on-surface-variant">Real-time detectie van alle AI-verkeer binnen uw netwerk. Instant inzicht in risico's en kansen.</p>
-</div>
-</div>
-<!-- Step 2 -->
-<div class="relative pl-16 mb-20">
-<div class="absolute left-0 top-0 w-12 h-12 bg-tertiary text-white rounded-full flex items-center justify-center font-bold z-10 shadow-lg">02</div>
-<div>
-<span class="text-sm font-label font-bold text-tertiary tracking-widest uppercase">Week 2-4</span>
-<h4 class="font-headline font-bold text-2xl mt-1 mb-3">Literacy &amp; Awareness</h4>
-<p class="text-on-surface-variant">Uitrol van de eerste trainingsmodules en de activatie van de 'Rijbewijs-gate' voor kritieke systemen.</p>
-</div>
-</div>
-<!-- Step 3 -->
-<div class="relative pl-16 mb-20">
-<div class="absolute left-0 top-0 w-12 h-12 bg-secondary text-white rounded-full flex items-center justify-center font-bold z-10 shadow-lg">03</div>
-<div>
-<span class="text-sm font-label font-bold text-secondary tracking-widest uppercase">Dag 30-180</span>
-<h4 class="font-headline font-bold text-2xl mt-1 mb-3">Governance Integratie</h4>
-<p class="text-on-surface-variant">Implementatie van het volledige compliance framework en voorbereiding op officiële audits.</p>
-</div>
-</div>
-<!-- Final Badge -->
-<div class="relative pl-16">
-<div class="absolute left-0 top-0 w-12 h-12 bg-primary-container text-white rounded-full flex items-center justify-center z-10 shadow-lg">
-<span class="material-symbols-outlined">emoji_events</span>
-</div>
-<div class="bg-surface-container-lowest p-8 rounded-xl shadow-xl inline-block border-2 border-primary-container border-dashed">
-<h4 class="font-headline font-bold text-2xl text-primary">EU AI Act Ready</h4>
-<p class="text-on-surface-variant text-sm mt-2">Uw organisatie is aantoonbaar in controle.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- 6. Scoreboard Section -->
-<section class="py-24 px-6">
-<div class="max-w-7xl mx-auto">
-<div class="text-center mb-16">
-<h2 class="font-headline font-extrabold text-4xl text-primary">Scoreboard</h2>
-<p class="text-on-surface-variant mt-4">Hoe wij de eisen van de Autoriteit Persoonsgegevens vertalen naar resultaat.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-<div class="space-y-8">
-<h3 class="font-headline font-bold text-2xl text-on-surface">AP Toezichtkader</h3>
-<div class="space-y-6">
-<div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-slate-400">circle</span>
-<div class="flex-1 h-2 bg-surface-container mt-3 rounded-full overflow-hidden">
-<div class="w-1/3 h-full bg-slate-300"></div>
-</div>
-<span class="text-sm font-bold text-slate-500">Eis: Inventarisatie</span>
-</div>
-<div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-slate-400">circle</span>
-<div class="flex-1 h-2 bg-surface-container mt-3 rounded-full overflow-hidden">
-<div class="w-1/4 h-full bg-slate-300"></div>
-</div>
-<span class="text-sm font-bold text-slate-500">Eis: Awareness</span>
-</div>
-</div>
-</div>
-<div class="space-y-8">
-<h3 class="font-headline font-bold text-2xl text-primary">Ready Kit Deliverables</h3>
-<div class="space-y-6">
-<div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-<div class="flex-1 h-2 bg-primary-container/20 mt-3 rounded-full overflow-hidden">
-<div class="w-full h-full bg-primary-container"></div>
-</div>
-<span class="text-sm font-bold text-primary">98% Voltooid</span>
-</div>
-<div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-<div class="flex-1 h-2 bg-primary-container/20 mt-3 rounded-full overflow-hidden">
-<div class="w-full h-full bg-primary-container"></div>
-</div>
-<span class="text-sm font-bold text-primary">Certificering OK</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- 7. Pricing Section -->
-<section class="py-24 px-6 bg-surface-container-low">
-<div class="max-w-7xl mx-auto">
-<div class="text-center mb-16">
-<h2 class="font-headline font-extrabold text-4xl text-primary">Investeer in Zekerheid</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-end">
-<!-- Pack S -->
-<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-lg transition-all">
-<h3 class="font-headline font-bold text-2xl mb-2">Ready Kit S</h3>
-<div class="text-4xl font-headline font-black text-primary mb-6">€ 2.450 <span class="text-sm font-normal text-on-surface-variant">/mnd</span></div>
-<ul class="space-y-4 mb-8 text-on-surface-variant text-sm">
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-600 text-[18px]">done</span> Shadow AI Scan (Basic)</li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-600 text-[18px]">done</span> AI Literacy voor 50 pax</li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-600 text-[18px]">done</span> Compliance Dashboard</li>
-</ul>
-<button class="w-full py-4 rounded-full border border-primary text-primary font-bold hover:bg-primary/5 transition-colors">Kies Plan</button>
-</div>
-<!-- Pack M - Featured -->
-<div class="bg-surface-container-lowest p-8 rounded-xl shadow-2xl relative primary-glow z-10 border-2 border-primary-container pb-12 scale-105">
-<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary-container text-white px-6 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
+                    <ul class="space-y-4 font-label font-semibold text-primary">
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined">verified_user</span> Automatische SSO-integratie</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined">verified_user</span> Jaarlijkse kennisherhaling</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined">verified_user</span> Volledige audit-trail voor de AP</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-24 max-w-7xl mx-auto px-6">
+            <div class="text-center space-y-2">
+                <span class="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary font-bold text-[10px] uppercase tracking-widest">Onze Componenten</span>
+                <h2 class="text-3xl md:text-4xl font-headline font-extrabold text-primary">Drie componenten, één traject</h2>
+            </div>
+            <div class="space-y-32">
+                <div class="flex flex-col md:flex-row items-center gap-12 group">
+                    <div class="w-full md:w-1/2 relative">
+                        <div class="absolute -inset-4 bg-primary-container/10 rounded-3xl blur-2xl group-hover:bg-primary-container/20 transition-all"></div>
+                        <img alt="Shadow AI Scan" class="relative rounded-[2rem] w-full h-80 object-cover shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyB1MSyZBpuktNJ2ksEkUtOXEYsfAPYuMn2RAvsjD2280XYBXkpeVLC11gHzRpza9hNVD-cjbtLAr321n4SQus3w6GHYwT8_MUeHJU44Gwt5VYmniu4PgJ-4jYo-hM3yy_Ck2YRmBwFH1nKkAmGm9w1TkHXc-vRdJqHvP9eb9FJx3L2p23QzkWXfDESoBBQUVhBRTiyt3ra17zFL_PJNvtEKTQ1bnGzEQqbpPMiWTbM7VhVbMrHm_xfH3VKEqAbFh-cPKGx1VWaG4"/>
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-4">
+                        <div class="text-xs font-bold text-primary-container uppercase tracking-widest">Fase 1 — De Scan</div>
+                        <h3 class="text-3xl font-headline font-extrabold text-on-surface leading-tight">Shadow AI Scan</h3>
+                        <p class="text-on-surface-variant leading-relaxed text-lg">
+                            Breng anoniem in kaart welke AI-tools medewerkers écht gebruiken. Geen controle-cultuur, maar een amnestievenster voor inzicht in risico's.
+                        </p>
+                        <ul class="space-y-2 pt-2">
+                            <li class="flex items-center gap-2 text-sm text-on-surface-variant font-medium">
+                                <span class="material-symbols-outlined text-primary text-xl">check_circle</span> 
+                                Volledig tool-overzicht per afdeling
+                            </li>
+                            <li class="flex items-center gap-2 text-sm text-on-surface-variant font-medium">
+                                <span class="material-symbols-outlined text-primary text-xl">check_circle</span> 
+                                EU AI Act risicoklasse per tool
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row-reverse items-center gap-12 group">
+                    <div class="w-full md:w-1/2 relative">
+                        <div class="absolute -inset-4 bg-tertiary-container/10 rounded-3xl blur-2xl group-hover:bg-tertiary-container/20 transition-all"></div>
+                        <img alt="AI Literacy" class="relative rounded-[2rem] w-full h-80 object-cover shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwktXginEArpdo7FHt91h6z-EX40IuQrxBHGUFEJMwgMXe5uY-Yu64qNxu2UpeTgxxk_XPVxBFGvPFLSmDfLSMvF-cnP6mQELtY-OgdvE5Tr2sAfL98pPat-1FI-xgOQwGQxocXu6cWdXZzLz8PessCD69Ryjb7AnOThA1WkR7ztvq8LUHlrkpC_GifKvfoaExUdJRDsx2nQloMQqzil3QFprawe_-HfDVQdcO7xfixRfLvju6zvtLvd4J70eaua10wf3LOQ96liI"/>
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-4">
+                        <div class="text-xs font-bold text-tertiary uppercase tracking-widest">Fase 3 — De Mensen</div>
+                        <h3 class="text-3xl font-headline font-extrabold text-on-surface leading-tight">AI Literacy (AISA)</h3>
+                        <p class="text-on-surface-variant leading-relaxed text-lg">
+                            Certificeer medewerkers voor AI-gebruik. Voldoen aan Artikel 4 door aantoonbare bekwaamheid en kritisch denken over bias en privacy.
+                        </p>
+                        <div class="bg-surface-container-low p-4 rounded-xl border-l-4 border-tertiary">
+                            <p class="text-sm font-semibold text-tertiary italic">"Verplicht voor alle medewerkers sinds feb 2025."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-12 group">
+                    <div class="w-full md:w-1/2 relative">
+                        <div class="absolute -inset-4 bg-brand-green/10 rounded-3xl blur-2xl group-hover:bg-brand-green/20 transition-all"></div>
+                        <img alt="Governance" class="relative rounded-[2rem] w-full h-80 object-cover shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJvR42vWvLKmzpyWELB_nVySYEDNgkacu8ifL4TEJSYrNOEnzQ9-S7CJWOs3wbJMBFHetZZakKbkfvYRpjPz5Eqs5bL50KaAzr98pabDgdSdQm-wXn9cpz0gDqgAgB0xwDueLhvb8UraqMyTdrEC4L2kJs8U2P6S2HBwSUVflTqbbIaqrftlA8F7Z7syg0sn1Ree40zF_vUYilUMvdUAvQbyK4iW-p3WwlkJe2pXXATDSS64PqIMjchAoabuh62sWSVfTicrGR6hI"/>
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-4">
+                        <div class="text-xs font-bold text-brand-green-accent uppercase tracking-widest">Fase 2 — De Regels</div>
+                        <h3 class="text-3xl font-headline font-extrabold text-on-surface leading-tight">RouteAI Governance</h3>
+                        <p class="text-on-surface-variant leading-relaxed text-lg">
+                            Het 'rijbewijs-principe': medewerkers krijgen pas toegang tot tools nadat ze gecertificeerd zijn. Een levend audit-trail voor de AP.
+                        </p>
+                        <button class="flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+                            Ontdek het Dashboard <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-surface-container-low py-32 px-6 mb-32 mt-24">
+            <div class="max-w-5xl mx-auto bg-surface-container-lowest rounded-xl overflow-hidden shadow-2xl shadow-primary/5">
+                <div class="p-12 border-b border-surface-container">
+                    <h2 class="text-3xl font-headline font-extrabold text-primary text-center">Autoriteit Persoonsgegevens vs. CuratorKit</h2>
+                    <p class="text-center text-on-surface-variant mt-4">Waarom we het vertrouwen van de toezichthouder al hebben ingebouwd.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 text-sm font-semibold uppercase tracking-wider text-outline px-12 py-6 bg-surface-container/50">
+                    <div class="md:col-span-1">Eis van de AP</div>
+                    <div class="hidden md:block">Traditionele Aanpak</div>
+                    <div class="text-secondary">CuratorKit Oplossing</div>
+                </div>
+                <div class="divide-y divide-surface-container">
+                    <div class="grid grid-cols-2 md:grid-cols-3 px-12 py-8 items-center">
+                        <div class="font-bold text-on-surface">AI-Register Verplichting</div>
+                        <div class="hidden md:block text-outline">Losse Excel-sheets</div>
+                        <div class="flex items-center gap-2 text-secondary font-bold">
+                            <span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Geautomatiseerd Register
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-3 px-12 py-8 items-center">
+                        <div class="font-bold text-on-surface">Risico Classificatie</div>
+                        <div class="hidden md:block text-outline">Handmatige interpretatie</div>
+                        <div class="flex items-center gap-2 text-secondary font-bold">
+                            <span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Smart Scoring Engine
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-3 px-12 py-8 items-center">
+                        <div class="font-bold text-on-surface">Audit Trail</div>
+                        <div class="hidden md:block text-outline">E-mail archieven</div>
+                        <div class="flex items-center gap-2 text-secondary font-bold">
+                            <span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Immutable Ledger
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-surface-container-low rounded-[3rem] p-8 md:p-12 space-y-12 max-w-7xl mx-auto mb-24">
+            <div class="text-center">
+                <h2 class="text-3xl font-headline font-extrabold text-primary">Interactieve Roadmap</h2>
+                <p class="text-on-surface-variant mt-2">Een 180-dagen traject naar volledige volwassenheid</p>
+            </div>
+            <div class="relative space-y-0 max-w-4xl mx-auto">
+                <div class="relative pl-16 pb-12 group cursor-pointer">
+                    <div class="absolute left-6 top-0 bottom-0 w-[2px] stippel-connector group-hover:w-1 group-hover:bg-primary-container transition-all"></div>
+                    <div class="absolute left-0 top-0 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-surface-container-low z-10 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-primary">search</span>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-bold text-primary-container bg-primary-container/10 px-2 py-0.5 rounded uppercase">Dag 1-30</span>
+                            <h4 class="font-headline font-extrabold text-xl text-primary">Kickoff & Scan</h4>
+                        </div>
+                        <p class="text-on-surface-variant">Setup van platformen en start van de Shadow AI Survey.</p>
+                        <div class="hidden group-hover:flex gap-4 pt-2 overflow-x-auto pb-2">
+                            <span class="text-[10px] font-bold bg-white px-3 py-1.5 rounded-full border border-primary/10 shadow-sm whitespace-nowrap">Online Kickoff (90 min)</span>
+                            <span class="text-[10px] font-bold bg-white px-3 py-1.5 rounded-full border border-primary/10 shadow-sm whitespace-nowrap">Survey Configuratie</span>
+                            <span class="text-[10px] font-bold bg-white px-3 py-1.5 rounded-full border border-primary/10 shadow-sm whitespace-nowrap">Amnestievenster Live</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative pl-16 pb-12 group cursor-pointer">
+                    <div class="absolute left-6 top-0 bottom-0 w-[2px] stippel-connector group-hover:bg-tertiary transition-all"></div>
+                    <div class="absolute left-0 top-0 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-surface-container-low z-10 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-tertiary">school</span>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-bold text-tertiary bg-tertiary/10 px-2 py-0.5 rounded uppercase">Dag 31-90</span>
+                            <h4 class="font-headline font-extrabold text-xl text-primary">AI Literacy Baseline</h4>
+                        </div>
+                        <p class="text-on-surface-variant">Training van alle medewerkers en eerste certificeringen.</p>
+                        <div class="hidden group-hover:flex gap-4 pt-2 overflow-x-auto pb-2">
+                            <span class="text-[10px] font-bold bg-white px-3 py-1.5 rounded-full border border-tertiary/10 shadow-sm whitespace-nowrap">E-learning Modules</span>
+                            <span class="text-[10px] font-bold bg-white px-3 py-1.5 rounded-full border border-tertiary/10 shadow-sm whitespace-nowrap">Kennistoetsen</span>
+                            <span class="text-[10px] font-bold bg-white px-3 py-1.5 rounded-full border border-tertiary/10 shadow-sm whitespace-nowrap">Certificaten uitreiking</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative pl-16 group cursor-pointer">
+                    <div class="absolute left-0 top-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-xl border-4 border-surface-container-low z-10 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-white">gavel</span>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-bold text-primary bg-primary-fixed px-2 py-0.5 rounded uppercase">Dag 91-180</span>
+                            <h4 class="font-headline font-extrabold text-xl text-primary">Governance & Audit</h4>
+                        </div>
+                        <p class="text-on-surface-variant">Volledige implementatie van RouteAI en voorbereiding op AP-inspectie.</p>
+                        <div class="hidden group-hover:flex gap-4 pt-2 overflow-x-auto pb-2">
+                            <span class="text-[10px] font-bold bg-white px-3 py-1.5 rounded-full border border-primary/10 shadow-sm whitespace-nowrap">Use-case Logging</span>
+                            <span class="text-[10px] font-bold bg-white px-3 py-1.5 rounded-full border border-primary/10 shadow-sm whitespace-nowrap">Audit Trail Export</span>
+                            <span class="text-[10px] font-bold bg-white px-3 py-1.5 rounded-full border border-primary/10 shadow-sm whitespace-nowrap">Review Sessie</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 bg-surface-container-low overflow-hidden">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="font-headline font-extrabold text-4xl text-primary">Uw Route naar Compliance</h2>
+                    <p class="text-on-surface-variant mt-4">Van snelle scan naar duurzame governance.</p>
+                </div>
+                <div class="relative">
+                    <div class="absolute left-6 top-0 bottom-0 w-1 border-l-2 border-dotted border-primary-container opacity-30"></div>
+                    <div class="relative pl-16 mb-20">
+                        <div class="absolute left-0 top-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold z-10 shadow-lg">01</div>
+                        <div>
+                            <span class="text-sm font-label font-bold text-primary-container tracking-widest uppercase">Eerste 90 Minuten</span>
+                            <h4 class="font-headline font-bold text-2xl mt-1 mb-3">De Shadow AI Scan</h4>
+                            <p class="text-on-surface-variant">Real-time detectie van alle AI-verkeer binnen uw netwerk. Instant inzicht in risico's en kansen.</p>
+                        </div>
+                    </div>
+                    <div class="relative pl-16 mb-20">
+                        <div class="absolute left-0 top-0 w-12 h-12 bg-tertiary text-white rounded-full flex items-center justify-center font-bold z-10 shadow-lg">02</div>
+                        <div>
+                            <span class="text-sm font-label font-bold text-tertiary tracking-widest uppercase">Week 2-4</span>
+                            <h4 class="font-headline font-bold text-2xl mt-1 mb-3">Literacy & Awareness</h4>
+                            <p class="text-on-surface-variant">Uitrol van de eerste trainingsmodules en de activatie van de 'Rijbewijs-gate' voor kritieke systemen.</p>
+                        </div>
+                    </div>
+                    <div class="relative pl-16 mb-20">
+                        <div class="absolute left-0 top-0 w-12 h-12 bg-secondary text-white rounded-full flex items-center justify-center font-bold z-10 shadow-lg">03</div>
+                        <div>
+                            <span class="text-sm font-label font-bold text-secondary tracking-widest uppercase">Dag 30-180</span>
+                            <h4 class="font-headline font-bold text-2xl mt-1 mb-3">Governance Integratie</h4>
+                            <p class="text-on-surface-variant">Implementatie van het volledige compliance framework en voorbereiding op officiële audits.</p>
+                        </div>
+                    </div>
+                    <div class="relative pl-16">
+                        <div class="absolute left-0 top-0 w-12 h-12 bg-primary-container text-white rounded-full flex items-center justify-center z-10 shadow-lg">
+                            <span class="material-symbols-outlined">emoji_events</span>
+                        </div>
+                        <div class="bg-surface-container-lowest p-8 rounded-xl shadow-xl inline-block border-2 border-primary-container border-dashed">
+                            <h4 class="font-headline font-bold text-2xl text-primary">EU AI Act Ready</h4>
+                            <p class="text-on-surface-variant text-sm mt-2">Uw organisatie is aantoonbaar in controle.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="font-headline font-extrabold text-4xl text-primary">Scoreboard</h2>
+                    <p class="text-on-surface-variant mt-4">Hoe wij de eisen van de Autoriteit Persoonsgegevens vertalen naar resultaat.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="space-y-8">
+                        <h3 class="font-headline font-bold text-2xl text-on-surface">AP Toezichtkader</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-slate-400">circle</span>
+                                <div class="flex-1 h-2 bg-surface-container mt-3 rounded-full overflow-hidden">
+                                    <div class="w-1/3 h-full bg-slate-300"></div>
+                                </div>
+                                <span class="text-sm font-bold text-slate-500">Eis: Inventarisatie</span>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-slate-400">circle</span>
+                                <div class="flex-1 h-2 bg-surface-container mt-3 rounded-full overflow-hidden">
+                                    <div class="w-1/4 h-full bg-slate-300"></div>
+                                </div>
+                                <span class="text-sm font-bold text-slate-500">Eis: Awareness</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-8">
+                        <h3 class="font-headline font-bold text-2xl text-primary">Ready Kit Deliverables</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <div class="flex-1 h-2 bg-primary-container/20 mt-3 rounded-full overflow-hidden">
+                                    <div class="w-full h-full bg-primary-container"></div>
+                                </div>
+                                <span class="text-sm font-bold text-primary">98% Voltooid</span>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <div class="flex-1 h-2 bg-primary-container/20 mt-3 rounded-full overflow-hidden">
+                                    <div class="w-full h-full bg-primary-container"></div>
+                                </div>
+                                <span class="text-sm font-bold text-primary">Certificering OK</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 bg-surface-container-low">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="font-headline font-extrabold text-4xl text-primary">Investeer in Zekerheid</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-end">
+                    <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-lg transition-all">
+                        <h3 class="font-headline font-bold text-2xl mb-2">Ready Kit S</h3>
+                        <div class="text-4xl font-headline font-black text-primary mb-6">€ 2.450 <span class="text-sm font-normal text-on-surface-variant">/mnd</span></div>
+                        <ul class="space-y-4 mb-8 text-on-surface-variant text-sm">
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-600 text-[18px]">done</span> Shadow AI Scan (Basic)</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-600 text-[18px]">done</span> AI Literacy voor 50 pax</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-600 text-[18px]">done</span> Compliance Dashboard</li>
+                        </ul>
+                        <button class="w-full py-4 rounded-full border border-primary text-primary font-bold hover:bg-primary/5 transition-colors">Kies Plan</button>
+                    </div>
+                    <div class="bg-surface-container-lowest p-8 rounded-xl shadow-2xl relative primary-glow z-10 border-2 border-primary-container pb-12 scale-105">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary-container text-white px-6 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
                             Meest gekozen
                         </div>
-<h3 class="font-headline font-bold text-3xl mb-2">Ready Kit M</h3>
-<div class="text-5xl font-headline font-black text-primary mb-6">€ 4.950 <span class="text-sm font-normal text-on-surface-variant">/mnd</span></div>
-<ul class="space-y-4 mb-10 text-on-surface-variant">
-<li class="flex items-center gap-2 font-semibold text-on-surface"><span class="material-symbols-outlined text-primary-container">star</span> Full Shadow AI Audit</li>
-<li class="flex items-center gap-2 font-semibold text-on-surface"><span class="material-symbols-outlined text-primary-container">star</span> AI Rijbewijs-gate Integratie</li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-600 text-[18px]">done</span> Literacy voor 250 pax</li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-600 text-[18px]">done</span> Risk Assessment Framework</li>
-</ul>
-<button class="w-full py-5 rounded-full bg-primary text-on-primary font-bold text-lg hover:bg-primary-container transition-all">Start Direct</button>
-</div>
-<!-- Pack L -->
-<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-lg transition-all">
-<h3 class="font-headline font-bold text-2xl mb-2">Ready Kit L</h3>
-<div class="text-4xl font-headline font-black text-primary mb-6">€ 8.750 <span class="text-sm font-normal text-on-surface-variant">/mnd</span></div>
-<ul class="space-y-4 mb-8 text-on-surface-variant text-sm">
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-600 text-[18px]">done</span> On-premise Monitoring</li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-600 text-[18px]">done</span> Custom LLM Guardrails</li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-600 text-[18px]">done</span> Unlimited AI Literacy</li>
-</ul>
-<button class="w-full py-4 rounded-full border border-primary text-primary font-bold hover:bg-primary/5 transition-colors">Contact Sales</button>
-</div>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="w-full pt-20 pb-32 px-8 bg-[#f1f4f6] dark:bg-[#1a202c]">
-<div class="flex flex-col md:flex-row justify-between items-start gap-8 max-w-7xl mx-auto">
-<div>
-<div class="font-['Manrope'] font-bold text-[#00658B] text-xl mb-4">Digital Curator Compliance</div>
-<p class="text-slate-500 max-w-xs">Wij transformeren regelgeving in strategisch voordeel.</p>
-</div>
-<div class="flex flex-wrap gap-10">
-<div class="space-y-4">
-<h5 class="font-bold text-primary">Links</h5>
-<ul class="space-y-2 text-slate-500">
-<li><a class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4" href="#">Privacy Policy</a></li>
-<li><a class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4" href="#">Terms of Service</a></li>
-<li><a class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4" href="#">AI Governance Registry</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-slate-200 text-slate-400 text-sm">
-            © 2024 Digital Curator Compliance
-        </div>
-</footer>
-<!-- Bottom Navigation Bar (Mobile) -->
-<div class="fixed bottom-8 left-0 w-full z-50 flex justify-around items-center md:hidden">
-<div class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl rounded-full px-6 py-3 flex gap-8 items-center shadow-[0_20px_40px_rgba(0,76,106,0.15)]">
-<div class="flex flex-col items-center justify-center bg-[#00658B] text-white rounded-full p-3 scale-110">
-<span class="material-symbols-outlined">dashboard</span>
-</div>
-<div class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 p-2">
-<span class="material-symbols-outlined">extension</span>
-</div>
-<div class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 p-2">
-<span class="material-symbols-outlined">account_tree</span>
-</div>
-<div class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 p-2">
-<span class="material-symbols-outlined">payments</span>
-</div>
-</div>
-</div>
-<!-- 8. Sticky CTA Bar -->
-<div class="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-md px-6 py-4 border-t-0 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] z-40 hidden md:flex items-center justify-between">
-<div class="flex items-center gap-4">
-<div class="w-3 h-3 bg-secondary rounded-full animate-pulse"></div>
-<span class="font-headline font-bold text-primary">Beschikbaar voor Q4 2024</span>
-</div>
-<div class="flex items-center gap-6">
-<div class="text-sm text-on-surface-variant font-label">Download direct de technische specificaties</div>
-<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-bold hover:bg-primary-container transition-all flex items-center gap-2">
-                Ontvang Productoverzicht
-                <span class="material-symbols-outlined text-sm">download</span>
-</button>
-</div>
-</div>
-<script src="/components/shared.js"></script>
-</body></html>
+                        <h3 class="font-headline font-bold text-3xl mb-2">Ready Kit M</h3>
+                        <div class="text-5xl font-headline font-black text-primary mb-6">€ 4.950 <span class="text-sm font-normal text-on-surface-variant">/mnd</span></div>
+                        <ul class="space-y-4 mb-10 text-on-surface-variant">
+                            <li class="flex items-center gap-2 font-semibold text-on-surface"><span class="material-symbols-outlined text-primary-container">star</span> Full Shadow AI Audit</li>
+                            <li class="flex items-center gap-2 font-semibold text-on-surface"><span class="material-symbols-outlined text-primary-container">star</span> AI Rijbewijs-gate Integratie</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-600 text-[18px]">done</span> Literacy voor 250 pax</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-600 text-[18px]">done</span> Risk Assessment Framework</li>
+                        </ul>
+                        <button class="w-full py-5 rounded-full bg-primary text-on-primary font-bold text-lg hover:bg-primary-container transition-all">Start Direct</button>
+                    </div>
+                    <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-lg transition-all">
+                        <h3 class="font-headline font-bold text-2xl mb-2">Ready Kit L</h3>
+                        <div class="text-4xl font-headline font-black text-primary mb-6">€ 8.750 <span class="text-sm font-normal text-on-surface-variant">/mnd</span></div>
+                        <ul class="space-y-4 mb-8 text-on-surface-variant text-sm">
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-600 text-[18px]">done</span> On-premise Monitoring</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-600 text-[18px]">done</span> Custom LLM Guardrails</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-600 text-[18px]">done</span> Unlimited AI Literacy</li>
+                        </ul>
+                        <button class="w-full py-4 rounded-full border border-primary text-primary font-bold hover:bg-primary/5 transition-colors">Contact Sales</button>
+                    </div>
+                </div>
+            </div>
+            
+            <section class="py-12 px-6 mt-12 max-w-7xl mx-auto">
+                <div class="mx-auto glass-card rounded-3xl p-8 flex flex-col md:flex-row items-center gap-8 bg-white shadow-sm border border-surface-container">
+                    <div class="w-20 h-20 bg-brand-green-light/20 rounded-full flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined text-primary text-4xl">account_balance</span>
+                    </div>
+                    <div class="grow">
+                        <h3 class="text-xl font-bold mb-2">Tot 50% co-financiering mogelijk via EDIH</h3>
+                        <p class="text-slate-600 text-[15px]">
+                            Als partner van de European Digital Innovation Hubs (EDIH) komt dit traject vaak in aanmerking voor aanzienlijke subsidie. Wij ondersteunen bij de aanvraag.
+                        </p>
+                    </div>
+                    <div class="shrink-0">
+                        <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Beperkt budget</span>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="max-w-7xl mx-auto bg-primary text-on-primary rounded-xl overflow-hidden relative group mt-8">
+                <div class="p-8 space-y-4 relative z-10">
+                    <div class="bg-secondary text-on-secondary inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase">
+                        Financieel Voordeel
+                    </div>
+                    <h3 class="text-3xl font-headline font-extrabold leading-tight">50% EDIH Co-financiering</h3>
+                    <p class="text-on-primary-container text-sm leading-relaxed max-w-xl">
+                        Ons traject is erkend door het European Digital Innovation Hub netwerk. Ontvang direct 50% subsidie op het volledige pakket.
+                    </p>
+                    <div class="pt-2 flex items-center gap-2 text-sm font-bold cursor-pointer hover:underline">
+                        Check subsidiestatus <span class="material-symbols-outlined">chevron_right</span>
+                    </div>
+                </div>
+                <div class="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full -mr-20 -mt-20 group-hover:scale-110 transition-transform duration-700"></div>
+            </section>
+        </section>
+
+        <section class="relative py-32 px-6 bg-surface-container-lowest overflow-hidden" id="faq">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+            <div class="max-w-3xl mx-auto relative z-10 space-y-12">
+                <div class="text-center space-y-2">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-primary-container">
+                        Onduidelijkheden?
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-headline font-extrabold text-primary tracking-tight">
+                        Veelgestelde vragen
+                    </h2>
+                </div>
+                <div class="space-y-4">
+                    <details class="group bg-white border border-outline-variant/30 rounded-[1.5rem] p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-[0_12px_36px_rgba(0,101,139,0.06)] open:border-primary/40 open:shadow-[0_16px_40px_rgba(0,101,139,0.08)] [&_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex justify-between items-center cursor-pointer font-headline font-bold text-lg text-on-surface group-open:text-primary transition-colors duration-300 gap-4">
+                            <span class="flex-1">Geldt dit voor ons? Wij bouwen geen AI.</span>
+                            <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors duration-300">
+                                <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-open:hidden transition-colors">add</span>
+                                <span class="material-symbols-outlined text-primary hidden group-open:block">remove</span>
+                            </div>
+                        </summary>
+                        <div class="mt-5 pt-5 border-t border-outline-variant/20 text-on-surface-variant text-base leading-relaxed font-medium">
+                            Ja. U bent een AI-afnemer. De wet stelt u verantwoordelijk voor hoe uw mensen AI inzetten.
+                        </div>
+                    </details>
+
+                    <details class="group bg-white border border-outline-variant/30 rounded-[1.5rem] p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-[0_12px_36px_rgba(0,101,139,0.06)] open:border-primary/40 open:shadow-[0_16px_40px_rgba(0,101,139,0.08)] [&_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex justify-between items-center cursor-pointer font-headline font-bold text-lg text-on-surface group-open:text-primary transition-colors duration-300 gap-4">
+                            <span class="flex-1">Microsoft/Google regelt dit toch?</span>
+                            <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors duration-300">
+                                <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-open:hidden transition-colors">add</span>
+                                <span class="material-symbols-outlined text-primary hidden group-open:block">remove</span>
+                            </div>
+                        </summary>
+                        <div class="mt-5 pt-5 border-t border-outline-variant/20 text-on-surface-variant text-base leading-relaxed font-medium">
+                            Nee. Zij maken veilig gereedschap, maar u bent verantwoordelijk voor het rijbewijs van de chauffeur en het toezicht op de weg.
+                        </div>
+                    </details>
+
+                    <details class="group bg-white border border-outline-variant/30 rounded-[1.5rem] p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-[0_12px_36px_rgba(0,101,139,0.06)] open:border-primary/40 open:shadow-[0_16px_40px_rgba(0,101,139,0.08)] [&_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex justify-between items-center cursor-pointer font-headline font-bold text-lg text-on-surface group-open:text-primary transition-colors duration-300 gap-4">
+                            <span class="flex-1">Onze AVG-documentatie is toch voldoende?</span>
+                            <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors duration-300">
+                                <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-open:hidden transition-colors">add</span>
+                                <span class="material-symbols-outlined text-primary hidden group-open:block">remove</span>
+                            </div>
+                        </summary>
+                        <div class="mt-5 pt-5 border-t border-outline-variant/20 text-on-surface-variant text-base leading-relaxed font-medium">
+                            Helaas niet. De AI Act vraagt om specifieke waarborgen rondom menselijk toezicht en transparantie die de AVG niet dekt.
+                        </div>
+                    </details>
+                    <details class="group bg-white border border-outline-variant/30 rounded-[1.5rem] p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-[0_12px_36px_rgba(0,101,139,0.06)] open:border-primary/40 open:shadow-[0_16px_40px_rgba(0,101,139,0.08)] [&_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex justify-between items-center cursor-pointer font-headline font-bold text-lg text-on-surface group-open:text-primary transition-colors duration-300 gap-4">
+                            <span class="flex-1">Wat houdt de 'EU AI Act classificatie' precies in?</span>
+                            <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors duration-300">
+                                <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-open:hidden transition-colors">add</span>
+                                <span class="material-symbols-outlined text-primary hidden group-open:block">remove</span>
+                            </div>
+                        </summary>
+                        <div class="mt-5 pt-5 border-t border-outline-variant/20 text-on-surface-variant text-base leading-relaxed font-medium">
+                            De Europese AI Act deelt AI-systemen in op basis van risico's. Bepaalde tools mogen vrij gebruikt worden, terwijl andere strenge documentatie vereisen of zelfs verboden zijn. In plaats van dat u dit handmatig per tool moet uitzoeken, classificeert ons dashboard automatisch het risiconiveau van elke door medewerkers gerapporteerde AI-tool in uw bedrijf. Zo bent u altijd proactief en 'audit-ready'.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-full py-16 px-4 bg-surface-container-low border-t border-surface-container reveal">
+            <div class="max-w-7xl mx-auto text-center md:text-left flex flex-col md:flex-row items-center md:items-start justify-between gap-8 bg-white p-10 rounded-3xl shadow-lg border border-surface-container">
+                <div>
+                    <h3 class="text-2xl font-extrabold text-primary mb-2">Klaar voor de volgende stap?</h3>
+                    <p class="text-on-surface-variant">Ontvang direct inzicht in onze methodiek en tarieven.</p>
+                </div>
+                <button class="w-full md:w-auto bg-primary text-white px-8 py-4 rounded-full font-bold shadow-xl shadow-primary/20 hover:scale-105 transition-transform">
+                    Ontvang Productoverzicht <span class="material-symbols-outlined text-sm align-middle">download</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <shared-footer></shared-footer>
+
+</body>
+</html>
