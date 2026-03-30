@@ -11,9 +11,25 @@ class SharedHeader extends HTMLElement {
         </div>
         
         <nav class="hidden md:flex gap-8 items-center">
-          <a class="text-sky-900 font-bold font-headline" href="#">Overzicht</a>
-          <a class="text-slate-500 hover:text-sky-600 transition-colors" href="#">Frameworks</a>
-          <a class="text-slate-500 hover:text-sky-600 transition-colors" href="#">Bewijslast</a>
+          
+          <div class="relative group py-4">
+            <button class="flex items-center gap-1 text-sky-900 font-bold font-headline hover:text-sky-700 transition-colors">
+              Solutions
+              <span class="material-symbols-outlined text-sm transition-transform duration-200 group-hover:rotate-180">arrow_drop_down</span>
+            </button>
+            
+            <div class="absolute top-[80%] left-0 w-64 bg-slate-900 text-slate-300 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-slate-700 overflow-hidden flex flex-col py-2 mt-2">
+              <a href="#" class="px-5 py-3 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium">Shadow AI Survey</a>
+              <a href="#" class="px-5 py-3 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium">RouteAI</a>
+              <a href="#" class="px-5 py-3 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium">AISA — AI Skills Accelerator</a>
+              <a href="#" class="px-5 py-3 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium">HR Module</a>
+              <a href="#" class="px-5 py-3 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium">EU AI Act Ready Kit</a>
+            </div>
+          </div>
+
+          <a class="text-slate-500 hover:text-sky-600 transition-colors font-medium" href="#">Insights</a>
+          <a class="text-slate-500 hover:text-sky-600 transition-colors font-medium" href="#">Over</a>
+          <a class="text-slate-500 hover:text-sky-600 transition-colors font-medium" href="#">Contact</a>
         </nav>
         
         <div class="flex items-center gap-2">
@@ -26,11 +42,24 @@ class SharedHeader extends HTMLElement {
           </button>
         </div>
 
-        <div id="mobile-menu" class="hidden absolute top-[120%] left-0 right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 p-6 flex-col gap-4 md:hidden origin-top transition-all">
-          <a class="text-sky-900 font-bold font-headline text-lg border-b border-slate-100 dark:border-slate-800 pb-3" href="#">Overzicht</a>
-          <a class="text-slate-500 hover:text-sky-600 font-medium text-lg border-b border-slate-100 dark:border-slate-800 pb-3" href="#">Frameworks</a>
-          <a class="text-slate-500 hover:text-sky-600 font-medium text-lg border-b border-slate-100 dark:border-slate-800 pb-3" href="#">Bewijslast</a>
-          <button class="w-full bg-primary text-on-primary px-6 py-4 rounded-full font-bold mt-2 hover:bg-primary-container transition-colors active:scale-95">
+        <div id="mobile-menu" class="hidden absolute top-[120%] left-0 right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 p-6 flex-col gap-2 md:hidden origin-top transition-all overflow-y-auto max-h-[80vh]">
+          
+          <div class="flex flex-col gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+            <span class="text-sky-900 font-bold font-headline text-lg">Solutions</span>
+            <div class="flex flex-col gap-3 pl-4 border-l-2 border-slate-200 dark:border-slate-700 ml-2">
+              <a href="#" class="text-slate-600 dark:text-slate-400 hover:text-sky-600 font-medium">Shadow AI Survey</a>
+              <a href="#" class="text-slate-600 dark:text-slate-400 hover:text-sky-600 font-medium">RouteAI</a>
+              <a href="#" class="text-slate-600 dark:text-slate-400 hover:text-sky-600 font-medium">AISA — AI Skills Accelerator</a>
+              <a href="#" class="text-slate-600 dark:text-slate-400 hover:text-sky-600 font-medium">HR Module</a>
+              <a href="#" class="text-slate-600 dark:text-slate-400 hover:text-sky-600 font-medium">EU AI Act Ready Kit</a>
+            </div>
+          </div>
+
+          <a class="text-slate-600 dark:text-slate-400 hover:text-sky-600 font-medium text-lg border-b border-slate-100 dark:border-slate-800 py-3" href="#">Insights</a>
+          <a class="text-slate-600 dark:text-slate-400 hover:text-sky-600 font-medium text-lg border-b border-slate-100 dark:border-slate-800 py-3" href="#">Over</a>
+          <a class="text-slate-600 dark:text-slate-400 hover:text-sky-600 font-medium text-lg border-b border-slate-100 dark:border-slate-800 py-3" href="#">Contact</a>
+          
+          <button class="w-full bg-primary text-on-primary px-6 py-4 rounded-full font-bold mt-4 hover:bg-primary-container transition-colors active:scale-95">
             Try Free
           </button>
         </div>
@@ -43,11 +72,9 @@ class SharedHeader extends HTMLElement {
     const menuIcon = this.querySelector('#menu-icon');
 
     menuBtn.addEventListener('click', () => {
-      // Toggle de zichtbaarheid van het menu
       mobileMenu.classList.toggle('hidden');
       mobileMenu.classList.toggle('flex');
       
-      // Verander het icoon van 'menu' naar 'close' (kruisje)
       if (mobileMenu.classList.contains('hidden')) {
         menuIcon.textContent = 'menu';
       } else {
