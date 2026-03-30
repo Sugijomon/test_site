@@ -25,10 +25,10 @@ class SharedHeader extends HTMLElement {
               
               <a href="https://test-site-eight-silk.vercel.app/shadow-ai-survey" class="px-5 py-3 hover:bg-sky-100/50 dark:hover:bg-slate-800 transition-colors text-sm font-medium">Shadow AI Survey</a>
               
-              <a href="JOUW_LINK_HIER" class="px-5 py-3 hover:bg-sky-100/50 dark:hover:bg-slate-800 transition-colors text-sm font-medium">RouteAI</a>
-              <a href="JOUW_LINK_HIER" class="px-5 py-3 hover:bg-sky-100/50 dark:hover:bg-slate-800 transition-colors text-sm font-medium">AISA — AI Skills Accelerator</a>
+              <a href="https://test-site-eight-silk.vercel.app/routeai" class="px-5 py-3 hover:bg-sky-100/50 dark:hover:bg-slate-800 transition-colors text-sm font-medium">RouteAI</a>
+              <a href="https://test-site-eight-silk.vercel.app/aisa" class="px-5 py-3 hover:bg-sky-100/50 dark:hover:bg-slate-800 transition-colors text-sm font-medium">AISA — AI Skills Accelerator</a>
               <a href="https://test-site-eight-silk.vercel.app/hr-module" class="px-5 py-3 hover:bg-sky-100/50 dark:hover:bg-slate-800 transition-colors text-sm font-medium">HR Module</a>
-              <a href="JOUW_LINK_HIER" class="px-5 py-3 hover:bg-sky-100/50 dark:hover:bg-slate-800 transition-colors text-sm font-medium">EU AI Act Ready Kit</a>
+              <a href="https://test-site-eight-silk.vercel.app/ready-kit" class="px-5 py-3 hover:bg-sky-100/50 dark:hover:bg-slate-800 transition-colors text-sm font-medium">EU AI Act Ready Kit</a>
             </div>
           </div>
 
@@ -55,10 +55,10 @@ class SharedHeader extends HTMLElement {
               
               <a href="https://test-site-eight-silk.vercel.app/shadow-ai-survey" class="text-slate-600 dark:text-slate-400 hover:text-sky-600 font-medium">Shadow AI Survey</a>
               
-              <a href="JOUW_LINK_HIER" class="text-slate-600 dark:text-slate-400 hover:text-sky-600 font-medium">RouteAI</a>
-              <a href="JOUW_LINK_HIER" class="text-slate-600 dark:text-slate-400 hover:text-sky-600 font-medium">AISA — AI Skills Accelerator</a>
+              <a href="https://test-site-eight-silk.vercel.app/routeai" class="text-slate-600 dark:text-slate-400 hover:text-sky-600 font-medium">RouteAI</a>
+              <a href="https://test-site-eight-silk.vercel.app/aisa" class="text-slate-600 dark:text-slate-400 hover:text-sky-600 font-medium">AISA — AI Skills Accelerator</a>
               <a href="https://test-site-eight-silk.vercel.app/hr-module" class="text-slate-600 dark:text-slate-400 hover:text-sky-600 font-medium">HR Module</a>
-              <a href="JOUW_LINK_HIER" class="text-slate-600 dark:text-slate-400 hover:text-sky-600 font-medium">EU AI Act Ready Kit</a>
+              <a href="https://test-site-eight-silk.vercel.app/ready-kit" class="text-slate-600 dark:text-slate-400 hover:text-sky-600 font-medium">EU AI Act Ready Kit</a>
             </div>
           </div>
 
@@ -115,8 +115,8 @@ class SharedFooter extends HTMLElement {
                 
                 <li><a href="https://test-site-eight-silk.vercel.app/shadow-ai-survey" class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4">Shadow AI Scan</a></li>
                 
-                <li><a href="JOUW_LINK_HIER" class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4">RouteAI</a></li>
-                <li><a href="JOUW_LINK_HIER" class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4">AI Skills Accelerator</a></li>
+                <li><a href="https://test-site-eight-silk.vercel.app/routeai" class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4">RouteAI</a></li>
+                <li><a href="https://test-site-eight-silk.vercel.app/aisa" class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4">AI Skills Accelerator</a></li>
               </ul>
             </div>
 
