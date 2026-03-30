@@ -1,187 +1,251 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html class="scroll-smooth" lang="nl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HR Module — AI in HR is hoog-risico | Digidactics</title>
-<link rel="stylesheet" href="../css/style.css">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Digidactics | AI Governance & Enablement</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script src="shared.js" defer></script>
+    
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#111c2d",
+              "background": "#f8f9ff",
+              "surface-dim": "#cbdbf5",
+              "on-error-container": "#93000a",
+              "inverse-surface": "#213145",
+              "surface-container-low": "#eff4ff",
+              "on-primary-container": "#00636a",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-container": "#c8d0ea",
+              "on-surface-variant": "#3b494c",
+              "inverse-primary": "#26daea",
+              "on-primary-fixed-variant": "#004f55",
+              "primary-fixed-dim": "#26daea",
+              "primary": "#006971",
+              "error-container": "#ffdad6",
+              "surface": "#f8f9ff",
+              "on-secondary-fixed-variant": "#3c475a",
+              "surface-tint": "#006971",
+              "secondary-container": "#d5e0f8",
+              "primary-fixed": "#84f3ff",
+              "outline-variant": "#bac9cc",
+              "outline": "#6b7a7d",
+              "on-error": "#ffffff",
+              "on-secondary-container": "#586377",
+              "on-surface": "#0b1c30",
+              "surface-bright": "#f8f9ff",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed": "#131b2e",
+              "on-primary-fixed": "#002023",
+              "secondary-fixed-dim": "#bcc7de",
+              "surface-container": "#e5eeff",
+              "tertiary-fixed-dim": "#bec6e0",
+              "surface-container-highest": "#d3e4fe",
+              "secondary": "#545f73",
+              "surface-container-high": "#dce9ff",
+              "tertiary-fixed": "#dae2fd",
+              "secondary-fixed": "#d8e3fb",
+              "inverse-on-surface": "#eaf1ff",
+              "tertiary": "#565e74",
+              "on-tertiary": "#ffffff",
+              "primary-container": "#3ae5f4",
+              "on-primary": "#ffffff",
+              "surface-variant": "#d3e4fe",
+              "on-tertiary-container": "#51596f",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed-variant": "#3f465c",
+              "on-background": "#0b1c30"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+    <style>
+      body { font-family: 'Inter', sans-serif; }
+      h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-effect {
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+      }
+    </style>
 </head>
-<body>
-<div id="nav-placeholder"></div>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
 
-<!-- HERO -->
-<div class="hero" style="background:linear-gradient(135deg, #0C1B2E 0%, #1a1535 100%);">
-  <div class="container hero-content">
-    <div class="hero-badge" style="background:rgba(217,119,6,0.18); color:#FCD34D; border-color:rgba(217,119,6,0.35);">HR Module — onderdeel van AISA</div>
-    <h1>AI in HR is <em>hoog-risico</em>.<br>Dat staat er letterlijk.</h1>
-    <p class="hero-lead">EU AI Act Annex III classificeert AI-systemen die HR-beslissingen ondersteunen expliciet als hoog-risico. Wervingssystemen, planningstools, prestatiebeoordelingen — ze zijn allemaal van toepassing. Training is niet optioneel.</p>
-    <div class="btn-cta-row">
-      <a href="../over/index.html#contact" class="btn btn-amber btn-lg">Module aanvragen</a>
-      <a href="../aisa/index.html" class="btn btn-ghost btn-lg">Terug naar AISA</a>
-    </div>
-    <div class="why-callout why-callout-dark mt-32" style="max-width:580px; border-left-color: #F59E0B;">
-      <div class="why-callout-label" style="color:#F59E0B;">Wettelijke context</div>
-      <p>Annex III EU AI Act: "AI-systemen die worden gebruikt voor werving of selectie van personen, met name voor het afhandelen van sollicitaties, het screenen of filteren van kandidaten, het beoordelen van kandidaten in sollicitatiegesprekken of beoordelingstests" — hoog-risico. Werkgevers zijn deployer en zijn verantwoordelijk.</p>
-    </div>
-  </div>
-</div>
+    <shared-header></shared-header>
 
-<!-- PROBLEEM -->
-<section class="section">
-  <div class="container">
-    <span class="eyebrow">Het risico</span>
-    <h2 class="section-title">Wat speelt er in HR?</h2>
-    <p class="section-lead">AI in HR-processen is al wijdverbreid. De meeste HR-professionals weten niet dat hun dagelijkse tools wettelijke verplichtingen meebrengen.</p>
-    <div class="grid-3 reveal">
-      <div class="card">
-        <div class="feature-icon feature-icon-amber">📋</div>
-        <h3 class="mb-8" style="font-size:17px;">Wervingssystemen (ATS)</h3>
-        <p class="text-sm text-muted">Applicant Tracking Systems die CV's filteren, ranken of beoordelen. Vaak ingebouwd in standaard HR-software — zonder dat de HR-afdeling het ziet als "AI-systeem".</p>
-        <div class="badge badge-red mt-16">Hoog-risico (Annex III)</div>
-      </div>
-      <div class="card">
-        <div class="feature-icon feature-icon-amber">🔍</div>
-        <h3 class="mb-8" style="font-size:17px;">LinkedIn AI-functies</h3>
-        <p class="text-sm text-muted">LinkedIn Recruiter gebruikt AI om kandidaten te rangschikken en aanbevolen kandidaten te tonen. Recruiters nemen beslissingen op basis van AI-output zonder dat expliciet te weten.</p>
-        <div class="badge badge-red mt-16">Hoog-risico (Annex III)</div>
-      </div>
-      <div class="card">
-        <div class="feature-icon feature-icon-amber">📅</div>
-        <h3 class="mb-8" style="font-size:17px;">Planningstools en roosters</h3>
-        <p class="text-sm text-muted">AI-gestuurde planningstools die medewerkers toewijzen aan shifts of projecten. Als ze aanbevelingen doen die invloed hebben op arbeidsomstandigheden, vallen ze onder Annex III.</p>
-        <div class="badge badge-amber mt-16">Mogelijk hoog-risico</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AANSPRAKELIJKHEID -->
-<section class="section bg-off">
-  <div class="container">
-    <span class="eyebrow">Aansprakelijkheid</span>
-    <h2 class="section-title">"Ik wist het niet" is geen verweer</h2>
-    <div class="grid-2 align-center reveal">
-      <div>
-        <p style="font-size:17px; color:var(--muted); line-height:1.75; margin-bottom:24px;">Als deployer van een hoog-risico AI-systeem bent u verantwoordelijk voor de naleving van de EU AI Act — ook als u de AI niet heeft gebouwd en ook als de leverancier niets heeft gemeld over het risicoclassificatie.</p>
-        <p style="font-size:17px; color:var(--muted); line-height:1.75; margin-bottom:32px;">Bias en discriminatie zijn hoofdpijndossiers die HR al kent. AI versterkt ze en maakt ze moeilijker zichtbaar. Een algoritme dat op historische wervingsdata is getraind, kan systematisch discrimineren op leeftijd, geslacht of achtergrond — zonder dat iemand dat zo heeft bedoeld.</p>
-        <div class="why-callout">
-          <div class="why-callout-label">Concrete verplichting</div>
-          <p>Hoog-risico AI-systemen vereisen: menselijk toezicht, risicobeheer, technische documentatie, logging, transparantie naar gebruikers. Als werkgever bent u verantwoordelijk voor elk van deze punten bij de systemen die uw HR-medewerkers gebruiken.</p>
-        </div>
-      </div>
-      <div>
-        <div class="card" style="padding:36px 32px;">
-          <h3 style="font-size:18px; font-weight:700; color:var(--navy); margin-bottom:24px;">Drie risicoscenario's</h3>
-          <div style="display:flex; flex-direction:column; gap:16px;">
-            <div style="padding:16px; background:rgba(220,38,38,0.05); border-radius:var(--radius); border-left:3px solid var(--red);">
-              <div style="font-weight:600; font-size:14px; color:var(--red); margin-bottom:4px;">Discriminatieclaim</div>
-              <p class="text-sm text-muted">Afgewezen kandidaat bewijst dat het ATS-systeem systematisch bepaalde profielen heeft uitgeselecteerd op basis van beschermde kenmerken.</p>
+    <main class="pt-20">
+        <section class="relative px-6 py-24 md:py-32 overflow-hidden bg-surface">
+            <div class="max-w-5xl mx-auto text-center relative z-10">
+                <span class="inline-block py-1 px-3 mb-6 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold tracking-widest uppercase">
+                    AI GOVERNANCE & ENABLEMENT
+                </span>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-on-surface tracking-tight leading-[1.1] mb-8">
+                    Uw concurrenten experimenteren met AI. U kunt dat ook doen — <span class="text-primary italic">of u kunt het goed doen.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed font-body">
+                    Digidactics geeft uw mensen de richting en de kaders om AI veilig en schaalbaar in te zetten. Geen chaos, maar gecontroleerde versnelling.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button class="w-full sm:w-auto bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-lg font-bold text-base hover:shadow-xl hover:shadow-primary/20 transition-all active:scale-95">
+                        Start de reis
+                    </button>
+                    <button class="w-full sm:w-auto bg-surface-container-high text-primary px-8 py-4 rounded-lg font-bold text-base hover:bg-surface-container-highest transition-all active:scale-95">
+                        Bekijk de EU AI Act Ready Kit
+                    </button>
+                </div>
             </div>
-            <div style="padding:16px; background:rgba(220,38,38,0.05); border-radius:var(--radius); border-left:3px solid var(--red);">
-              <div style="font-weight:600; font-size:14px; color:var(--red); margin-bottom:4px;">AP-onderzoek</div>
-              <p class="text-sm text-muted">Autoriteit Persoonsgegevens onderzoekt of het gebruik van AI in wervingsprocessen voldoet aan GDPR-vereisten voor geautomatiseerde besluitvorming (Artikel 22).</p>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl -z-10"></div>
+        </section>
+
+        <section class="bg-surface-container-low py-20 px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary">
+                    <span class="material-symbols-outlined" data-icon="format_quote" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+                </div>
+                <blockquote class="text-2xl md:text-3xl font-headline font-semibold text-on-surface leading-tight italic">
+                    "Goede remmen en vangrails zijn geen doel op zich. Ze zijn de voorwaarde om veilig op uw bestemming te komen."
+                </blockquote>
             </div>
-            <div style="padding:16px; background:rgba(220,38,38,0.05); border-radius:var(--radius); border-left:3px solid var(--red);">
-              <div style="font-weight:600; font-size:14px; color:var(--red); margin-bottom:4px;">EU AI Act handhaving</div>
-              <p class="text-sm text-muted">Toezichthouder stelt vast dat hoog-risico AI-systemen worden ingezet zonder verplichte documentatie, risicobeheersystemen of training voor gebruikers.</p>
+        </section>
+
+        <section class="py-24 px-6 bg-surface">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-8 rounded-xl bg-surface-container-lowest transition-all hover:translate-y-[-4px]">
+                        <div class="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-3xl" data-icon="campaign">campaign</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-on-surface">Marketing & Sales</h3>
+                        <p class="text-on-surface-variant leading-relaxed text-sm">
+                            Optimaliseer contentcreatie en lead scoring binnen veilige kaders. Verhoog de ROI zonder intellectueel eigendom in gevaar te brengen.
+                        </p>
+                    </div>
+                    <div class="p-8 rounded-xl bg-surface-container-lowest transition-all hover:translate-y-[-4px]">
+                        <div class="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-3xl" data-icon="work">work</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-on-surface">Operations & HR</h3>
+                        <p class="text-on-surface-variant leading-relaxed text-sm">
+                            Automatiseer repetitieve taken met AI-tools die voldoen aan de hoogste privacy-eisen. Efficiëntie ontmoet integriteit.
+                        </p>
+                    </div>
+                    <div class="p-8 rounded-xl bg-surface-container-lowest transition-all hover:translate-y-[-4px]">
+                        <div class="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-3xl" data-icon="gavel">gavel</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-on-surface">Legal & DPO</h3>
+                        <p class="text-on-surface-variant leading-relaxed text-sm">
+                            Krijg grip op shadow-AI en voldoe proactief aan de EU AI Act. Wij vertalen complexe wetgeving naar werkbare processen.
+                        </p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        </section>
 
-<!-- INHOUD MODULE -->
-<section class="section">
-  <div class="container">
-    <span class="eyebrow">Module-inhoud</span>
-    <h2 class="section-title">Wat u na deze dag weet en kunt</h2>
-    <div class="grid-2 reveal">
-      <div>
-        <div style="display:flex; flex-direction:column; gap:16px;">
-          <div class="card" style="padding:24px 28px;">
-            <div class="badge badge-amber mb-12">Onderdeel 1</div>
-            <h3 style="font-size:16px; font-weight:700; color:var(--navy); margin-bottom:8px;">Welke HR-AI is hoog-risico?</h3>
-            <p class="text-sm text-muted">Inventarisatie van tools die uw HR-team gebruikt. Welke vallen onder Annex III? Concrete voorbeelden: ATS-systemen, LinkedIn-functies, planningstools, prestatiebeoordelingssystemen.</p>
-          </div>
-          <div class="card" style="padding:24px 28px;">
-            <div class="badge badge-amber mb-12">Onderdeel 2</div>
-            <h3 style="font-size:16px; font-weight:700; color:var(--navy); margin-bottom:8px;">Aansprakelijkheid in de praktijk</h3>
-            <p class="text-sm text-muted">Casuïstiek: wat heeft er al plaatsgevonden? Wat telt als bewijs? Wat is de rol van de werkgever vs. de leverancier? Hoe is uw organisatie nu beschermd — en waar niet?</p>
-          </div>
-          <div class="card" style="padding:24px 28px;">
-            <div class="badge badge-amber mb-12">Onderdeel 3</div>
-            <h3 style="font-size:16px; font-weight:700; color:var(--navy); margin-bottom:8px;">Bias en discriminatie</h3>
-            <p class="text-sm text-muted">Hoe versterkt AI bestaande patronen? Leeftijdsdiscriminatie in wervingsfilters, genderbias in prestatiebeoordelingen. Hoe detecteert u het — en wat doet u eraan?</p>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div style="display:flex; flex-direction:column; gap:16px;">
-          <div class="card" style="padding:24px 28px;">
-            <div class="badge badge-amber mb-12">Onderdeel 4</div>
-            <h3 style="font-size:16px; font-weight:700; color:var(--navy); margin-bottom:8px;">Menselijk toezicht documenteren</h3>
-            <p class="text-sm text-muted">Wat moet u vastleggen? Hoe? Voor wie? Welke beslissingen moeten altijd door een mens worden bekeken? Haak naar RouteAI voor systematische governance-documentatie.</p>
-          </div>
-          <div class="card" style="padding:24px 28px;">
-            <div class="badge badge-amber mb-12">Onderdeel 5</div>
-            <h3 style="font-size:16px; font-weight:700; color:var(--navy); margin-bottom:8px;">Verantwoord AI-gebruik voor HR-medewerkers</h3>
-            <p class="text-sm text-muted">Hoe gebruik jíj — als HR-medewerker — AI in je eigen dagelijkse werk? ChatGPT voor functiebeschrijvingen, samenvatten van gesprekken, analyseren van sollicitatiebrieven. Wanneer mag dat, wanneer niet?</p>
-          </div>
-          <div class="card" style="background:var(--off); padding:24px 28px;">
-            <h3 style="font-size:15px; font-weight:700; color:var(--navy); margin-bottom:8px;">Format & praktisch</h3>
-            <ul class="list-check list-check-sm">
-              <li>1 dag in-company of online</li>
-              <li>4–12 deelnemers</li>
-              <li>HR-directeuren, HR-managers, recruiters</li>
-              <li>Werkboek en checklist inbegrepen</li>
-              <li>Haak naar RouteAI voor vervolg</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        <section class="relative py-24 px-6 overflow-hidden">
+            <div class="absolute inset-0 bg-on-surface">
+                <img alt="Global connectivity" class="w-full h-full object-cover opacity-20 mix-blend-luminosity" data-alt="Abstract deep blue and black data visualization of global connectivity network with glowing lines and points of light in a dark space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB33sgmtq9igmfbYkSK6NB6q_VEv8k6zXALDkDCpQEp-OIPU5zJ6lsZ5kIHcHXKP4TkKl3EDh3saHoMFvFRm6RFKtQXkiJT3f1FfFl8WEVcCgqKBHWzbSkJrUIp7qiUVkiP-Ik6ZsQPWUhUSG1XIFWB_j4kaun66S7joFT2wQjKN0xi6iWZDfnmtbNEmdtwo2lhRt7sMArkXrgpIjdd_3GT2mZ2_aV4fVtuST-7CxU4XI_b9rVuTEp-0aYxg_j8E3AOMR2WmK7uqTw"/>
+            </div>
+            <div class="max-w-4xl mx-auto text-center relative z-10">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-surface tracking-tight mb-8">
+                    Compliance is het fundament. <br/>
+                    <span class="text-primary-container">Versnelling is de reden dat u het legt.</span>
+                </h2>
+                <div class="h-1 w-24 bg-primary mx-auto rounded-full"></div>
+            </div>
+        </section>
 
-<!-- PRICING -->
-<section class="section bg-off">
-  <div class="container" style="max-width:680px;">
-    <span class="eyebrow">Tarief</span>
-    <h2 class="section-title">HR Module — prijs</h2>
-    <div class="card card-amber-top" style="padding:40px 36px;">
-      <div class="price-tier">HR Module</div>
-      <div class="price-amount">v.a. €3.500</div>
-      <div class="price-period" style="margin-bottom:6px;">halve dag · tot 12 deelnemers</div>
-      <div class="price-users mb-24">Volle dag in-company: v.a. €5.500</div>
-      <ul class="list-check mb-32">
-        <li>1 dag in-company of online</li>
-        <li>4–12 deelnemers</li>
-        <li>Inventarisatie van uw HR-AI toolset</li>
-        <li>Werkboek en checklist</li>
-        <li>Documentatieformat voor menselijk toezicht</li>
-        <li>Haak naar RouteAI governance platform</li>
-      </ul>
-      <a href="../over/index.html#contact" class="btn btn-amber btn-lg">Module aanvragen</a>
-      <p class="text-xs text-muted mt-16">EDIH-cohorten: mogelijk gedeeltelijk gesubsidieerd via MKB Digitaal of ROM. Vraag ernaar bij het contact.</p>
-    </div>
-  </div>
-</section>
+        <section class="py-24 px-6 bg-surface-container-low">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-16">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-on-surface mb-4">Van AI-chaos naar versnelling. Stap voor stap.</h2>
+                    <p class="text-on-surface-variant max-w-2xl">Onze beproefde methodiek brengt rust in de organisatie en bouwt een duurzame motor voor innovatie.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="group relative p-8 rounded-xl bg-surface-container-lowest overflow-hidden">
+                        <span class="absolute -top-4 -right-4 text-8xl font-black text-primary/5 group-hover:text-primary/10 transition-colors">01</span>
+                        <div class="relative z-10">
+                            <div class="text-primary font-bold text-xs tracking-widest uppercase mb-2">Grip</div>
+                            <h3 class="text-xl font-bold mb-3 text-on-surface">Meten</h3>
+                            <p class="text-sm text-on-surface-variant leading-relaxed">Breng het huidige AI-gebruik en de bijbehorende risico's binnen uw organisatie in kaart.</p>
+                        </div>
+                    </div>
+                    <div class="group relative p-8 rounded-xl bg-surface-container-lowest overflow-hidden">
+                        <span class="absolute -top-4 -right-4 text-8xl font-black text-primary/5 group-hover:text-primary/10 transition-colors">02</span>
+                        <div class="relative z-10">
+                            <div class="text-primary font-bold text-xs tracking-widest uppercase mb-2">Regie</div>
+                            <h3 class="text-xl font-bold mb-3 text-on-surface">Leren</h3>
+                            <p class="text-sm text-on-surface-variant leading-relaxed">Train uw teams in de praktische vaardigheden en ethische kaders van modern AI-gebruik.</p>
+                        </div>
+                    </div>
+                    <div class="group relative p-8 rounded-xl bg-surface-container-lowest overflow-hidden border-2 border-primary/20">
+                        <span class="absolute -top-4 -right-4 text-8xl font-black text-primary/5 group-hover:text-primary/10 transition-colors">03</span>
+                        <div class="relative z-10">
+                            <div class="text-primary font-bold text-xs tracking-widest uppercase mb-2">Regie+</div>
+                            <h3 class="text-xl font-bold mb-3 text-on-surface">Borgen</h3>
+                            <p class="text-sm text-on-surface-variant leading-relaxed">Implementeer technische safeguards en beleid dat meegroeit met de technologie.</p>
+                        </div>
+                    </div>
+                    <div class="group relative p-8 rounded-xl bg-on-surface overflow-hidden">
+                        <span class="absolute -top-4 -right-4 text-8xl font-black text-surface/5 group-hover:text-surface/10 transition-colors">04</span>
+                        <div class="relative z-10">
+                            <div class="text-primary-container font-bold text-xs tracking-widest uppercase mb-2">Impact</div>
+                            <h3 class="text-xl font-bold mb-3 text-surface">Versnellen</h3>
+                            <p class="text-sm text-surface-dim leading-relaxed">Schaal bewezen use-cases en creëer een cultuur van continue, veilige AI-innovatie.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<!-- CTA -->
-<section class="cta-section">
-  <div class="container">
-    <h2 class="section-title section-title-white mb-16">Uw HR-team is er al mee bezig.<br>De vraag is of het gecontroleerd gebeurt.</h2>
-    <p class="section-lead section-lead-white" style="margin:0 auto 36px; text-align:center;">Eén dag investering voor structurele compliance en veel minder aansprakelijkheidsrisico.</p>
-    <div class="btn-cta-row" style="justify-content:center;">
-      <a href="../over/index.html#contact" class="btn btn-amber btn-lg">Module aanvragen</a>
-      <a href="../routeai/index.html" class="btn btn-ghost btn-lg">Bekijk RouteAI voor vervolg →</a>
-    </div>
-  </div>
-</section>
+        <section class="py-24 px-6 bg-surface">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl font-extrabold text-on-surface mb-6 leading-tight">
+                        Gestoeld op wereldwijde standaarden voor verantwoorde technologie.
+                    </h2>
+                    <p class="text-on-surface-variant leading-relaxed mb-8">
+                        Onze frameworks zijn direct afgeleid van de ISO/IEC 42001 (Artificial Intelligence Management System) en de aankomende EU AI Act. We bouwen niet alleen voor vandaag, maar voor de wetgeving van morgen.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container text-on-surface-variant font-medium text-sm">
+                            <span class="material-symbols-outlined text-primary text-xl" data-icon="verified_user">verified_user</span>
+                            EU AI Act Ready
+                        </div>
+                        <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container text-on-surface-variant font-medium text-sm">
+                            <span class="material-symbols-outlined text-primary text-xl" data-icon="policy">policy</span>
+                            ISO/IEC 42001
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-surface-container-low rounded-2xl p-12 grid grid-cols-2 gap-8 items-center justify-items-center opacity-60">
+                    <div class="w-24 h-8 bg-on-surface/20 rounded-sm"></div>
+                    <div class="w-32 h-6 bg-on-surface/20 rounded-sm"></div>
+                    <div class="w-28 h-10 bg-on-surface/20 rounded-sm"></div>
+                    <div class="w-20 h-8 bg-on-surface/20 rounded-sm"></div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-<div id="footer-placeholder"></div>
-<script src="../js/main.js"></script>
+    <shared-footer></shared-footer>
+
 </body>
 </html>

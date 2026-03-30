@@ -5,14 +5,17 @@ cd ~/Downloads/digidactics-site
 git init
 git remote add origin https://github.com/Sugijomon/test_site.git
 
+NEW
+
+#1. 
+git pull origin main --rebase
+git push -u origin main
+
+
 # 3. Voeg alle bestanden toe en push
 git add .
 git commit -m "Initial site"
 git branch -M main
 git push -u origin main
 
-SSH 
-ssh -i C:\Users\Gebruiker\.ssh\ssh_key root@165.232.95.219
-cd /var/www/insights
-ghost start
-pw
+
