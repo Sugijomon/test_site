@@ -110,7 +110,18 @@ class SharedFooter extends HTMLElement {
             </div>
 
             <div class="py-12 md:px-8 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-700">
-<h5 class="font-bold text-primary mb-6">Bedrijf</h5>
+              <h5 class="font-bold text-primary mb-6">Producten</h5>
+              <ul class="space-y-2 text-slate-500 text-sm">
+                
+                <li><a href="https://test-site-eight-silk.vercel.app/shadow-ai-survey" class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4">Shadow AI Scan</a></li>
+                
+                <li><a href="JOUW_LINK_HIER" class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4">RouteAI</a></li>
+                <li><a href="JOUW_LINK_HIER" class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4">AI Skills Accelerator</a></li>
+              </ul>
+            </div>
+
+            <div class="py-12 md:px-8 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-700">
+              <h5 class="font-bold text-primary mb-6">Bedrijf</h5>
               <ul class="space-y-2 text-slate-500 text-sm">
                 <li><a href="JOUW_LINK_HIER" class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4">Over ons</a></li>
                 <li><a href="JOUW_LINK_HIER" class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4">Contact</a></li>
