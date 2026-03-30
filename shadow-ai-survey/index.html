@@ -1,322 +1,619 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html class="light" lang="nl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shadow AI Survey — Digidactics</title>
-<link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Shadow AI Scan by Digidactics | Van Schaduw naar Helderheid</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <script src="./componenten/shared.js" defer></script>
+    
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              /* --- JOUW MERK & UI KLEUREN --- */
+              "brand-green": "#93C942",
+              "brand-green-accent": "#5C9E1A",
+              "brand-green-light": "#D9F0B0",
+              "ui-blue-grey": "#6993AA",
 
-<div id="nav-placeholder"></div>
-
-<div class="notice-bar">
-  🔔 Bèta-aanbod: eerste vijf organisaties ontvangen 3 maanden onbeperkt toegang. <a href="../over/index.html#contact">Direct contact opnemen →</a>
-</div>
-
-<!-- HERO -->
-<div class="hero" style="position:relative; overflow:hidden;">
-  <!-- Tool icon background -->
-  <div style="position:absolute; inset:0; opacity:0.05; display:grid; grid-template-columns:repeat(12,1fr); gap:3px; padding:16px; pointer-events:none;">
-    <div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">🤖</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">✍️</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">📊</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">🎨</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">💬</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">🔍</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">📝</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">🧠</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">⚡</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">🔗</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">📧</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">🎯</div>
-    <div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">💻</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">🤖</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">📈</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">✍️</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">🔍</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">💬</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">📊</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">🎨</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">🧠</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">⚡</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">📝</div><div style="background:rgba(255,255,255,0.8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;">🔗</div>
-  </div>
-  <div class="container hero-content">
-    <div class="hero-badge">Shadow AI Survey</div>
-    <h1>Welke AI-tools gebruiken<br>uw medewerkers <em>eigenlijk</em>?</h1>
-    <p class="hero-lead">De meeste organisaties weten het niet. Shadow AI Survey brengt het in kaart — anoniem, snel en zonder controlecultuur. Uw DPO heeft binnen 48 uur een eerste dashboard.</p>
-    <div class="btn-cta-row">
-      <a href="../over/index.html#contact" class="btn btn-primary btn-lg">Vraag een demo aan</a>
-      <a href="#hoe-het-werkt" class="btn btn-ghost btn-lg">Bekijk hoe het werkt ↓</a>
-    </div>
-    <div class="why-callout why-callout-dark mt-32" style="max-width:580px;">
-      <div class="why-callout-label">Waarom inventariseren vóór alles</div>
-      <p>Governance die je niet kunt uitleggen aan de medewerker die je wilt bereiken, werkt niet. De EU AI Act verplicht organisaties tot inzicht in AI-gebruik — maar het begint bij het vermogen om dat gesprek überhaupt te voeren.</p>
-    </div>
-  </div>
-</div>
-
-<!-- STATS -->
-<div class="stat-bar">
-  <div class="container">
-    <div class="stat-bar-inner">
-      <div class="stat-item"><span class="stat-num">43%</span><span class="stat-label">NL medewerkers gebruikt ongeautoriseerde AI-tools (Salesforce/YouGov)</span></div>
-      <div class="stat-item"><span class="stat-num">69%</span><span class="stat-label">Organisaties vermoeden verboden AI-gebruik (Gartner 2025)</span></div>
-      <div class="stat-item"><span class="stat-num">223</span><span class="stat-label">Databeleidsovertredingen/maand via AI-tools (Netskope 2026)</span></div>
-      <div class="stat-item"><span class="stat-num">&lt;48u</span><span class="stat-label">Eerste DPO-dashboard na activatie</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- PROBLEEM -->
-<section class="section">
-  <div class="container">
-    <span class="eyebrow">Het probleem</span>
-    <h2 class="section-title">De blinde vlek die iedereen heeft</h2>
-    <p class="section-lead">AI-gebruik groeit sneller dan beleid bijhoudt. Dat is geen verwijt — het is een structureel probleem dat om een structureel antwoord vraagt.</p>
-    <div class="grid-3 reveal">
-      <div class="card">
-        <div class="feature-icon">🔍</div>
-        <h3 class="mb-8" style="font-size:17px; color:var(--navy);">Geen zicht</h3>
-        <p class="text-sm text-muted">Welke tools worden gebruikt, waarvoor, met welke data? Zonder die informatie kunt u geen beleid maken en geen risico beheersen.</p>
-      </div>
-      <div class="card">
-        <div class="feature-icon">⚖️</div>
-        <h3 class="mb-8" style="font-size:17px; color:var(--navy);">Aansprakelijkheid</h3>
-        <p class="text-sm text-muted">Als deployer bent u verantwoordelijk voor AI-gebruik door uw medewerkers — ook voor tools die buiten uw medeweten worden ingezet. De AVG en EU AI Act kennen geen uitzondering voor onwetendheid.</p>
-      </div>
-      <div class="card">
-        <div class="feature-icon">🚧</div>
-        <h3 class="mb-8" style="font-size:17px; color:var(--navy);">Verboden werkt niet</h3>
-        <p class="text-sm text-muted">Blokkades drijven gebruik ondergronds. Medewerkers stoppen niet — ze worden onzichtbaarder. KPMG/Melbourne: risicogedrag is hoger in organisaties die AI verboden hebben dan in organisaties zonder beleid.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOE HET WERKT -->
-<section class="section bg-off" id="hoe-het-werkt">
-  <div class="container">
-    <span class="eyebrow">Hoe het werkt</span>
-    <h2 class="section-title">Van blinde vlek naar volledig overzicht</h2>
-    <p class="section-lead">Shadow AI Survey draait de incentives om. Het goedgekeurde pad wordt sneller en aantrekkelijker dan het schaduwpad.</p>
-
-    <div class="steps reveal">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Amnestievenster</h3>
-        <p>Manager tekent digitaal. Geen straf voor wat medewerkers nu opgeven. De toezegging is zichtbaar, tijdgebonden en geloofwaardig.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Tool-inventarisatie</h3>
-        <p>Medewerkers selecteren welke AI-tools ze gebruiken. Per tool: hoe vaak, waarvoor, met welke data. 20–30 minuten.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Direct inzicht</h3>
-        <p>Elke tool krijgt direct een status: goedgekeurd, in beoordeling of privacy-concern. Waarde vóór enige terugvraag.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h3>DPO-dashboard</h3>
-        <p>Alle resultaten per afdeling, risiconiveau en EU AI Act-klasse. Exporteerbaar als audit-pakket. Binnen 48 uur.</p>
-      </div>
-    </div>
-
-    <div class="why-callout mt-48">
-      <div class="why-callout-label">Governance als enablement — de rode draad</div>
-      <p>Shadow AI bestaat niet omdat medewerkers regels willen omzeilen. Het bestaat omdat het officiële pad te traag is. Shadow AI Survey maakt openleggen aantrekkelijker dan verbergen — door direct waarde te leveren aan de medewerker die zijn tools opgeeft.</p>
-    </div>
-  </div>
-</section>
-
-<!-- WAT U TERUGKRIJGT -->
-<section class="section">
-  <div class="container">
-    <span class="eyebrow">Uitkomst</span>
-    <h2 class="section-title">Wat ziet de DPO?</h2>
-
-    <div class="grid-2 align-center reveal">
-      <!-- Dashboard mock -->
-      <div class="dash-mock">
-        <div class="dash-mock-bar">
-          <div class="dm-dot dm-dot-r"></div>
-          <div class="dm-dot dm-dot-y"></div>
-          <div class="dm-dot dm-dot-g"></div>
-          <span class="dash-mock-title">RouteAI · DPO Dashboard — Shadow AI Survey</span>
-        </div>
-        <div class="dash-mock-body">
-          <div class="dash-row dash-4 header">
-            <span>Medewerker</span><span>Tool</span><span>Risicoklasse</span><span>Status</span>
-          </div>
-          <div class="dash-row dash-4">
-            <span>J. de Vries</span><span>ChatGPT Plus</span><span>Beperkt</span><span><span class="badge badge-green">✓ Goedgekeurd</span></span>
-          </div>
-          <div class="dash-row dash-4">
-            <span>S. Bakker</span><span>Otter.ai</span><span>Beperkt</span><span><span class="badge badge-amber">⚡ Review</span></span>
-          </div>
-          <div class="dash-row dash-4">
-            <span>M. Smit</span><span>LinkedIn AI</span><span>Hoog risico</span><span><span class="badge badge-red">✗ Actie</span></span>
-          </div>
-          <div class="dash-row dash-4">
-            <span>R. Janssen</span><span>Lokale agent</span><span>Onbekend</span><span><span class="badge badge-grey">? Onbekend</span></span>
-          </div>
-          <div class="dash-row dash-4">
-            <span>P. van Dijk</span><span>Grammarly</span><span>Minimaal</span><span><span class="badge badge-green">✓ Goedgekeurd</span></span>
-          </div>
-        </div>
-      </div>
-      <div>
-        <ul class="list-check">
-          <li>Volledig tool-overzicht per afdeling en medewerker</li>
-          <li>EU AI Act risicoklasse per toepassing (minimaal / beperkt / hoog / onaanvaardbaar)</li>
-          <li>Automatische signalering bij hoog-risico profielen</li>
-          <li>Risicoscore per medewerker met tier-indeling</li>
-          <li>Één-klik audit-export: vier CSV's als ZIP-pakket</li>
-          <li>Gedocumenteerde disclosure per medewerker</li>
-        </ul>
-        <p class="mt-24 text-sm text-muted" style="font-style:italic;">"Binnen twee weken weet u precies welke AI-tools uw medewerkers gebruiken en wat het risiconiveau is — zonder IT-project."</p>
-        <div class="mt-24">
-          <a href="../over/index.html#contact" class="btn btn-primary">Demo aanvragen</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AANVULLENDE MODULES -->
-<section class="section bg-off">
-  <div class="container">
-    <span class="eyebrow">Aanvullend</span>
-    <h2 class="section-title">Verder gaan dan inventariseren</h2>
-    <p class="section-lead">De survey staat op zichzelf. Twee optionele modules versterken het resultaat.</p>
-    <div class="grid-2 reveal">
-      <div class="card card-teal-top">
-        <span class="badge badge-teal mb-16">Optioneel · vóór of ná survey</span>
-        <h3 style="font-size:19px; color:var(--navy); margin-bottom:12px;">Shadow AI Bewustwordings­module</h3>
-        <p class="text-sm text-muted mb-24">Medewerkers leren wat shadow AI is en waarom het riskant kan zijn — aan de hand van scenario's uit de eigen werkcontext. Geen compliance-lecture, wel praktische training.</p>
-        <ul class="list-check list-check-sm">
-          <li>Scenarioherkenning: is dit shadow AI?</li>
-          <li>Risicoklasse-oefening per tool + gebruik</li>
-          <li>Melden zonder angst: wat betekent amnestie?</li>
-          <li>Eigen tool-inventaris als voorbereiding</li>
-        </ul>
-        <p class="text-xs text-muted mt-16">⏱ 15–20 minuten · Online, zelfsturend</p>
-      </div>
-      <div class="card card-teal-top">
-        <span class="badge badge-teal mb-16">Optioneel · EU AI Act Artikel 4</span>
-        <h3 style="font-size:19px; color:var(--navy); margin-bottom:12px;">AI Literacy Baseline</h3>
-        <p class="text-sm text-muted mb-24">Artikel 4 EU AI Act verplicht aantoonbare AI-geletterdheid voor medewerkers die AI inzetten. Deze module levert het certificaat — en het wordt opgenomen in het DPO-dashboard.</p>
-        <ul class="list-check list-check-sm">
-          <li>Wat is AI, wat kan het, wat niet</li>
-          <li>Risico's en beperkingen in werkcontext</li>
-          <li>Wanneer gebruik je AI, wanneer niet?</li>
-          <li>Kennistoets + automatisch PDF-certificaat</li>
-        </ul>
-        <p class="text-xs text-muted mt-16">⏱ 30–45 minuten · Online, zelfsturend · Certificaat in DPO-dashboard</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRIJZEN -->
-<section class="section">
-  <div class="container">
-    <span class="eyebrow">Tarieven</span>
-    <h2 class="section-title">Transparante prijzen</h2>
-    <p class="section-lead">Vaste prijs per organisatie — geen per-user tarieven. Jaarlijks betalen = 2 maanden gratis.</p>
-
-    <!-- Toggle maand/jaar -->
-    <div style="display:flex; justify-content:center; margin-bottom:32px;">
-      <div style="background:var(--off); border:1px solid var(--border); border-radius:100px; padding:4px; display:flex; gap:4px;">
-        <button onclick="setFreq('monthly')" id="btn-monthly" style="padding:8px 20px; border-radius:100px; border:none; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:600; cursor:pointer; background:var(--white); color:var(--navy); box-shadow:0 1px 4px rgba(0,0,0,0.1);">Per maand</button>
-        <button onclick="setFreq('annual')" id="btn-annual" style="padding:8px 20px; border-radius:100px; border:none; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:600; cursor:pointer; background:transparent; color:var(--muted);">Per jaar <span style="background:var(--teal); color:white; font-size:10px; padding:2px 7px; border-radius:100px; margin-left:4px;">2 mnd gratis</span></button>
-      </div>
-    </div>
-
-    <div class="pricing-grid reveal">
-      <div class="price-card">
-        <div class="price-tier">Starter</div>
-        <div class="price-amount" id="p1">€490</div>
-        <div class="price-period" id="pp1">per maand</div>
-        <div class="price-users">tot 25 medewerkers</div>
-        <hr class="price-divider">
-        <ul class="price-features">
-          <li>Shadow AI Survey (zelfbediening)</li>
-          <li>DPO-dashboard</li>
-          <li>Audit-export (ZIP)</li>
-          <li>Amnestie-configuratie</li>
-          <li class="na">Bewustwordings­module</li>
-          <li class="na">AI Literacy Baseline</li>
-        </ul>
-        <a href="../over/index.html#contact" class="price-cta-link">Aan de slag</a>
-      </div>
-      <div class="price-card featured">
-        <div class="featured-pill">Meest gekozen ★</div>
-        <div class="price-tier">Business</div>
-        <div class="price-amount" id="p2">€990</div>
-        <div class="price-period" id="pp2">per maand</div>
-        <div class="price-users">26–100 medewerkers</div>
-        <hr class="price-divider">
-        <ul class="price-features">
-          <li>Alles van Starter</li>
-          <li>Bewustwordings­module (selecteerbaar in dashboard)</li>
-          <li>AI Literacy Baseline (selecteerbaar in dashboard)</li>
-          <li>Direct online koopbaar — geen verkoopgesprek</li>
-        </ul>
-        <a href="../over/index.html#contact" class="price-cta-link">Aan de slag</a>
-      </div>
-      <div class="price-card">
-        <div class="price-tier">Scale</div>
-        <div class="price-amount" id="p3">€1.890</div>
-        <div class="price-period" id="pp3">per maand</div>
-        <div class="price-users">101–250 medewerkers</div>
-        <hr class="price-divider">
-        <ul class="price-features">
-          <li>Alles van Business</li>
-          <li>Prioriteit support</li>
-          <li>Onboarding-pakket inbegrepen</li>
-          <li>Koppeling naar RouteAI</li>
-        </ul>
-        <a href="../over/index.html#contact" class="price-cta-link">Neem contact op</a>
-      </div>
-    </div>
-    <p class="text-center text-muted mt-24 text-sm">Jaarcontract: 10 maanden betalen voor 12 — 2 maanden gratis effectief.</p>
-    <script>
-      const prices = { monthly: ['€490','€990','€1.890'], annual: ['€4.900','€9.900','€18.900'] };
-      const periods = { monthly: ['per maand','per maand','per maand'], annual: ['per jaar','per jaar','per jaar'] };
-      function setFreq(f) {
-        [1,2,3].forEach(i => {
-          document.getElementById('p'+i).textContent = prices[f][i-1];
-          document.getElementById('pp'+i).textContent = periods[f][i-1];
-        });
-        document.getElementById('btn-monthly').style.cssText += f==='monthly' ? 'background:var(--white);color:var(--navy);box-shadow:0 1px 4px rgba(0,0,0,0.1)' : 'background:transparent;color:var(--muted);box-shadow:none';
-        document.getElementById('btn-annual').style.cssText += f==='annual' ? 'background:var(--white);color:var(--navy);box-shadow:0 1px 4px rgba(0,0,0,0.1)' : 'background:transparent;color:var(--muted);box-shadow:none';
+              /* --- BESTAANDE KLEUREN --- */
+              "error": "#ba1a1a",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#7dd0ff",
+              "on-secondary-fixed": "#001e2b",
+              "on-surface": "#181c1e",
+              "tertiary-fixed": "#ffd9e1",
+              "secondary": "#396379",
+              "primary": "#00658b",
+              "on-secondary-fixed-variant": "#1f4c60",
+              "surface-variant": "#e0e3e5",
+              "surface": "#f7fafc",
+              "surface-dim": "#d7dadc",
+              "on-primary-container": "#003348",
+              "tertiary-fixed-dim": "#ffb1c6",
+              "surface-tint": "#00658b",
+              "on-tertiary-fixed": "#3f001c",
+              "background": "#f7fafc",
+              "on-primary-fixed": "#001e2d",
+              "surface-bright": "#f7fafc",
+              "tertiary": "#b90360",
+              "error-container": "#ffdad6",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#a2cce5",
+              "outline": "#6e7880",
+              "surface-container-highest": "#e0e3e5",
+              "secondary-fixed": "#c1e8ff",
+              "primary-fixed": "#c4e7ff",
+              "on-background": "#181c1e",
+              "primary-container": "#00a1da",
+              "inverse-on-surface": "#eef1f3",
+              "on-primary-fixed-variant": "#004c6a",
+              "inverse-surface": "#2d3133",
+              "on-tertiary-container": "#62002f",
+              "on-error": "#ffffff",
+              "on-error-container": "#93000a",
+              "surface-container-high": "#e5e9eb",
+              "surface-container": "#ebeef0",
+              "on-secondary": "#ffffff",
+              "on-secondary-container": "#3d687d",
+              "inverse-primary": "#7dd0ff",
+              "surface-container-low": "#f1f4f6",
+              "on-tertiary-fixed-variant": "#8e0048",
+              "on-surface-variant": "#3e484f",
+              "tertiary-container": "#ff5898",
+              "surface-container-lowest": "#ffffff",
+              "secondary-container": "#bae6ff",
+              "outline-variant": "#bdc8d0"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
       }
     </script>
-  </div>
-</section>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .organic-gradient {
+            background: radial-gradient(circle at top left, #c4e7ff 0%, #f7fafc 50%);
+        }
+        .nebula-glow {
+            filter: blur(80px);
+            background: linear-gradient(135deg, #00a1da 0%, #ff5898 100%);
+            opacity: 0.15;
+        }
+        .step-connector {
+            background: linear-gradient(to bottom, transparent, #bdc8d0 20%, #bdc8d0 80%, transparent);
+            width: 2px;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
 
-<!-- FAQ -->
-<section class="section bg-off">
-  <div class="container" style="max-width:720px;">
-    <span class="eyebrow">Veelgestelde vragen</span>
-    <h2 class="section-title">Wat u wilt weten</h2>
-    <div style="display:flex; flex-direction:column; gap:0;">
-      <details style="border-bottom:1px solid var(--border); padding:20px 0;">
-        <summary style="font-weight:600; font-size:15px; cursor:pointer; color:var(--navy);">Zien medewerkers wat de DPO in het dashboard ziet?</summary>
-        <p class="text-sm text-muted mt-16">Nee. Medewerkers zien hun eigen tool-status en een neutraal bericht als hun profiel handmatige review vereist. Risicoklassen en scores zijn uitsluitend zichtbaar voor de DPO.</p>
-      </details>
-      <details style="border-bottom:1px solid var(--border); padding:20px 0;">
-        <summary style="font-weight:600; font-size:15px; cursor:pointer; color:var(--navy);">Wat als medewerkers tools niet opgeven?</summary>
-        <p class="text-sm text-muted mt-16">De survey is vrijwillig en gebouwd op vertrouwen. Dat is bewust: dwang drijft gebruik verder ondergronds. Het amnestievenster maakt openheid structureel aantrekkelijker dan verbergen.</p>
-      </details>
-      <details style="border-bottom:1px solid var(--border); padding:20px 0;">
-        <summary style="font-weight:600; font-size:15px; cursor:pointer; color:var(--navy);">Is dit een technische enforcement-tool?</summary>
-        <p class="text-sm text-muted mt-16">Nee. We blokkeren geen tools, monitoren geen netwerk en onderscheppen geen API-calls. Shadow AI Survey is een inventarisatie-instrument, geen politiesysteem. Dat is ook de reden waarom het werkt.</p>
-      </details>
-      <details style="padding:20px 0;">
-        <summary style="font-weight:600; font-size:15px; cursor:pointer; color:var(--navy);">Past de survey bij de EU AI Act?</summary>
-        <p class="text-sm text-muted mt-16">De risicoklassificatie is gebaseerd op EU AI Act Annex III en Artikel 5. Het DPO-dashboard levert exporteerbare documentatie die aansluit op Artikel 9 (risicobeheer) en Artikel 12 (documentatie). AI Literacy Baseline dekt Artikel 4.</p>
-      </details>
-    </div>
-  </div>
-</section>
+    <shared-header></shared-header>
 
-<!-- CTA -->
-<section class="cta-section">
-  <div class="container">
-    <h2 class="section-title section-title-white mb-16">Weet u over twee weken wat er nu al in uw organisatie rondgaat?</h2>
-    <p class="section-lead section-lead-white" style="margin:0 auto 36px; text-align:center;">Shadow AI Survey activeert u in één gesprek. Uw DPO heeft binnen 48 uur na activatie een eerste dashboard.</p>
-    <div class="btn-cta-row" style="justify-content:center;">
-      <a href="../over/index.html#contact" class="btn btn-primary btn-lg">Vraag een gesprek aan</a>
-      <a href="../routeai/index.html" class="btn btn-ghost btn-lg">Bekijk RouteAI →</a>
-    </div>
-  </div>
-</section>
+    <main>
+        <section class="relative pt-44 pb-32 px-6 overflow-hidden">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-full nebula-glow pointer-events-none -z-10"></div>
+            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2 space-y-8 text-center lg:text-left pl-6 lg:pl-20">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-container text-on-secondary-container text-xs font-semibold tracking-wide uppercase">EU AI ACT RISICO-INVENTARISATIE</div>
+                    <h1 class="text-5xl md:text-6xl font-headline font-bold text-on-surface leading-[1.1] tracking-tight">Weet wat uw medewerkers al doen met <span class="text-primary-container">AI</span></h1>
+                    <p class="text-xl text-on-surface-variant max-w-xl mx-auto lg:mx-0 leading-relaxed">De Shadow AI Scan combineert bewustwording en inventarisatie in één doorlopende ervaring van 20–25 minuten. Geen aparte training. Geen aparte enquête. Één flow, één uitkomst.</p>
+                    <div class="flex flex-col md:flex-row items-center gap-4 justify-center lg:justify-start">
+                        <button class="bg-primary text-on-primary px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/20 w-full md:w-auto">Start een gratis demo</button>
+                        <button class="border-2 border-primary/30 text-primary-container px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary/5 transition-all duration-300 w-full md:w-auto">Bekijk hoe het werkt</button>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 relative aspect-square w-full max-w-md">
+                    <img alt="Organic Tool Nebula" class="w-full h-full object-cover rounded-xl mix-blend-multiply opacity-80" data-alt="Abstract fluid organic cloud of app icons and light" src="https://digidactics.com/wp-content/uploads/2026/03/Fingerprint.png"/>
+                    <div class="absolute top-1/4 -left-8 glass-card p-4 rounded-2xl shadow-xl animate-bounce" style="animation-duration: 4s">
+                        <span class="material-symbols-outlined text-[#00a1da]" data-icon="psychology">psychology</span>
+                    </div>
+                    <div class="absolute bottom-1/4 -right-4 glass-card p-4 rounded-2xl shadow-xl animate-bounce" style="animation-duration: 5s">
+                        <span class="material-symbols-outlined text-tertiary" data-icon="palette">palette</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<div id="footer-placeholder"></div>
-<script src="../js/main.js"></script>
-</body>
-</html>
+        <section class="py-24 px-6 bg-white" id="markt-inzicht">
+            <div class="max-w-[1000px] mx-auto">
+                <div class="w-full h-px bg-ui-blue-grey/10 mb-16"></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
+                    <div class="space-y-5">
+                        <span class="text-ui-blue-grey font-bold uppercase tracking-[0.2em] text-[10px]">Marktinzicht NL</span>
+                        <h3 class="text-5xl md:text-6xl font-headline font-extrabold text-on-surface tracking-tighter leading-none">
+                            43% <span class="text-ui-blue-grey/30 text-3xl md:text-4xl font-normal">gebruikt AI</span>
+                        </h3>
+                        <p class="text-xl text-on-surface-variant leading-relaxed font-normal">
+                            van de Nederlandse werknemers werkt met GenAI <span class="italic">zonder</span> formele goedkeuring van IT.
+                        </p>
+                    </div>
+                    <div class="space-y-5">
+                        <span class="text-ui-blue-grey font-bold uppercase tracking-[0.2em] text-[10px]">Bestuurlijk Risico</span>
+                        <h3 class="text-5xl md:text-6xl font-headline font-extrabold text-on-surface tracking-tighter leading-none">
+                            65% <span class="text-ui-blue-grey/30 text-3xl md:text-4xl font-normal">geen zicht</span>
+                        </h3>
+                        <p class="text-xl text-on-surface-variant leading-relaxed font-normal">
+                            van de IT-beslissers heeft geen inzicht in welke data in publieke AI-modellen verdwijnt.
+                        </p>
+                        <p class="text-[10px] text-ui-blue-grey/60 uppercase tracking-widest pt-6">
+                            Bron: Salesforce/YouGov, 2024
+                        </p>
+                    </div>
+                </div>
+                <div class="w-full h-px bg-ui-blue-grey/10 mt-16"></div>
+            </div>
+        </section>
+
+        <section class="relative py-20 px-6 overflow-hidden" id="compliance-trust">
+            <div class="absolute -top-1/4 -left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-60"></div>
+            <div class="absolute -bottom-1/4 -right-1/4 w-96 h-96 bg-tertiary/10 rounded-full blur-3xl opacity-60"></div>
+            <div class="max-w-[1024px] mx-auto relative z-10">
+                <div class="bg-white/60 backdrop-blur-2xl rounded-[2.5rem] border border-white p-10 md:p-14 shadow-[0_24px_50px_rgba(0,101,139,0.06)] flex flex-col items-center text-center hover:shadow-[0_30px_60px_rgba(0,101,139,0.12)] transition-shadow duration-500">
+                    <h3 class="text-3xl md:text-4xl font-headline font-extrabold text-on-surface tracking-tight leading-tight max-w-3xl mb-8">
+                        Vervang aannames over AI-gebruik door feitelijke zekerheid
+                    </h3>
+                    <div class="flex flex-wrap justify-center gap-x-10 gap-y-4 pt-8 border-t border-outline-variant/30 w-full max-w-4xl">
+                        <div class="flex items-center gap-3 group">
+                            <div class="w-9 h-9 rounded-full bg-tertiary/10 flex items-center justify-center border border-tertiary/20 group-hover:scale-110 transition-transform duration-300">
+                                <span class="material-symbols-outlined text-[20px] text-tertiary" data-icon="policy">policy</span>
+                            </div>
+                            <span class="text-lg text-on-surface-variant font-medium">EU AI Act Risicoclassificatie</span>
+                        </div>
+                        <div class="flex items-center gap-3 group">
+                            <div class="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 group-hover:scale-110 transition-transform duration-300">
+                                <span class="material-symbols-outlined text-[20px] text-primary" data-icon="description">description</span>
+                            </div>
+                            <span class="text-lg text-on-surface-variant font-medium">Audit-Ready Exports</span>
+                        </div>
+                        <div class="flex items-center gap-3 group">
+                            <div class="w-9 h-9 rounded-full bg-secondary/10 flex items-center justify-center border border-secondary/20 group-hover:scale-110 transition-transform duration-300">
+                                <span class="material-symbols-outlined text-[20px] text-secondary" data-icon="lock">lock</span>
+                            </div>
+                            <span class="text-lg text-on-surface-variant font-medium">AVG-bewust ontworpen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="relative py-32 px-6 bg-surface-container-lowest overflow-hidden" id="methode">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-[400px] nebula-glow pointer-events-none z-0"></div>
+            <div class="max-w-[1440px] mx-auto px-4 md:px-8 relative z-10">
+                <div class="text-center mb-24">
+                    <span class="inline-block py-1.5 px-4 rounded-full bg-tertiary/10 text-tertiary font-bold tracking-[0.05em] uppercase text-xs mb-6 shadow-sm">
+                        Hoe het werkt
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-headline font-extrabold text-on-surface tracking-tight max-w-3xl mx-auto leading-tight">
+                        Van onzichtbaar naar inzichtelijk in <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">5 stappen</span>
+                    </h2>
+                    <p class="text-xl text-on-surface-variant max-w-3xl mx-auto mt-6 leading-relaxed">
+                        <span>Een helder fundament voor wie de regie voert over veiligheid en beleid.</span>
+                        <span>Ontworpen voor de DPO, IT-Manager en de directie.</span>
+                    </p>
+                </div>
+                <div class="relative max-w-6xl mx-auto">
+                    <div class="hidden md:block absolute top-12 left-[10%] right-[10%] h-[6px] z-0 opacity-60 transition-all duration-500" style="background-image: radial-gradient(circle, #00a1da 3.5px, transparent 3.5px); background-size: 20px 6px; background-repeat: repeat-x;"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-4 relative z-10">
+                        <div class="flex flex-col items-center text-center group">
+                            <div class="w-24 h-24 rounded-full bg-white/60 backdrop-blur-xl border-[4px] border-white flex items-center justify-center mb-6 shadow-[0_12px_36px_rgba(0,101,139,0.12)] transition-all duration-500 group-hover:-translate-y-2 group-hover:scale-105 group-hover:shadow-[0_20px_40px_rgba(0,101,139,0.2)]">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-[#004c6a] flex items-center justify-center text-white shadow-inner">
+                                    <span class="material-symbols-outlined text-3xl" data-icon="inventory_2">inventory_2</span>
+                                </div>
+                            </div>
+                            <h3 class="font-headline font-bold text-lg text-on-surface mb-3 px-2 group-hover:text-primary transition-colors duration-300">Tool-inventarisatie</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed px-2 font-medium">Inventarisatie van AI-gebruik op organisatieniveau via een veilige, laagdrempelige scan.</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center group mt-0 md:mt-8">
+                            <div class="w-24 h-24 rounded-full bg-white/60 backdrop-blur-xl border-[4px] border-white flex items-center justify-center mb-6 shadow-[0_12px_36px_rgba(185,3,96,0.12)] transition-all duration-500 group-hover:-translate-y-2 group-hover:scale-105 group-hover:shadow-[0_20px_40px_rgba(185,3,96,0.2)]">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-tertiary to-[#ff5898] flex items-center justify-center text-white shadow-inner">
+                                    <span class="material-symbols-outlined text-3xl" data-icon="policy">policy</span>
+                                </div>
+                            </div>
+                            <h3 class="font-headline font-bold text-lg text-on-surface mb-3 px-2 group-hover:text-tertiary transition-colors duration-300">EU AI Act Classificatie</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed px-2 font-medium">Automatische validatie en classificatie van tools volgens de nieuwste Europese richtlijnen.</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center group">
+                            <div class="w-24 h-24 rounded-full bg-white/60 backdrop-blur-xl border-[4px] border-white flex items-center justify-center mb-6 shadow-[0_12px_36px_rgba(0,161,218,0.12)] transition-all duration-500 group-hover:-translate-y-2 group-hover:scale-105 group-hover:shadow-[0_20px_40px_rgba(0,161,218,0.2)]">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#00a1da] to-[#7dd0ff] flex items-center justify-center text-white shadow-inner">
+                                    <span class="material-symbols-outlined text-3xl" data-icon="verified">verified</span>
+                                </div>
+                            </div>
+                            <h3 class="font-headline font-bold text-lg text-on-surface mb-3 px-2 group-hover:text-[#00a1da] transition-colors duration-300">Audit-Ready Rapport</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed px-2 font-medium">Directe rapportages inclusief volledige documentatie voor de DPO en externe auditors.</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center group mt-0 md:mt-8">
+                            <div class="w-24 h-24 rounded-full bg-white/60 backdrop-blur-xl border-[4px] border-white flex items-center justify-center mb-6 shadow-[0_12px_36px_rgba(57,99,121,0.12)] transition-all duration-500 group-hover:-translate-y-2 group-hover:scale-105 group-hover:shadow-[0_20px_40px_rgba(57,99,121,0.2)]">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-secondary to-[#1f4c60] flex items-center justify-center text-white shadow-inner">
+                                    <span class="material-symbols-outlined text-3xl" data-icon="monitoring">monitoring</span>
+                                </div>
+                            </div>
+                            <h3 class="font-headline font-bold text-lg text-on-surface mb-3 px-2 group-hover:text-secondary transition-colors duration-300">Progress Meter</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed px-2 font-medium">Organisatie-volwassenheid inzichtelijk gemaakt — participatiegraad en risiconiveaus in één oogopslag.</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center group">
+                            <div class="w-24 h-24 rounded-full bg-white/60 backdrop-blur-xl border-[4px] border-white flex items-center justify-center mb-6 shadow-[0_12px_36px_rgba(0,101,139,0.12)] transition-all duration-500 group-hover:-translate-y-2 group-hover:scale-105 group-hover:shadow-[0_20px_40px_rgba(0,101,139,0.2)]">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#004c6a] to-primary flex items-center justify-center text-white shadow-inner">
+                                    <span class="material-symbols-outlined text-3xl" data-icon="account_tree">account_tree</span>
+                                </div>
+                            </div>
+                            <h3 class="font-headline font-bold text-lg text-on-surface mb-3 px-2 group-hover:text-primary transition-colors duration-300">Sectorspecifiek</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed px-2 font-medium">Sector-specifieke voorbeelden en benchmarks die aansluiten bij de praktijk van jouw organisatie.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="relative py-32 px-6 bg-surface-container-lowest overflow-hidden" id="unieke-aanpak">
+            <div class="max-w-[1280px] mx-auto relative z-10">
+                <div class="text-center mb-20">
+                    <span class="inline-block py-1.5 px-4 rounded-full bg-primary/10 text-primary font-bold tracking-[0.05em] uppercase text-xs mb-6 shadow-sm">
+                        De Filosofie
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-headline font-extrabold text-on-surface tracking-tight max-w-3xl mx-auto leading-tight mb-6">
+                        Governance die voelt als <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-tertiary">enablement</span>.
+                    </h2>
+                    <p class="text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+                        Een mensgerichte benadering om Shadow AI veilig en snel in beheer te krijgen, zonder de werkflow te frustreren.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(200px,auto)]">
+                    <div class="md:col-span-7 bg-white rounded-[2rem] p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,101,139,0.08)] transition-shadow duration-500 flex flex-col justify-center relative overflow-hidden group">
+                        <div class="absolute -right-10 -top-10 w-48 h-48 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors duration-500"></div>
+                        <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
+                            <span class="material-symbols-outlined text-3xl" data-icon="key">key</span>
+                        </div>
+                        <h3 class="font-headline font-bold text-2xl text-on-surface mb-3">Amnestievenster</h3>
+                        <p class="text-on-surface-variant text-base leading-relaxed max-w-md">
+                            Een door de manager ondertekende verklaring garandeert 30 dagen amnestie. Onthulling leidt niet tot straf of blokkades, maar opent de deur naar veiliger werken.
+                        </p>
+                    </div>
+                    <div class="md:col-span-5 bg-gradient-to-br from-[#f1f4f6] to-[#e5e9eb] rounded-[2rem] p-10 hover:shadow-lg transition-shadow duration-500 flex flex-col justify-center">
+                        <div class="w-14 h-14 rounded-2xl bg-tertiary/10 flex items-center justify-center text-tertiary mb-6">
+                            <span class="material-symbols-outlined text-3xl" data-icon="grid_view">grid_view</span>
+                        </div>
+                        <h3 class="font-headline font-bold text-2xl text-on-surface mb-3">Visuele Tool-picker</h3>
+                        <p class="text-on-surface-variant text-base leading-relaxed">
+                            Medewerkers vinken tools aan via een intuïtief grid met 8 categorieën. Herkenbaar, bliksemsnel en zonder enige drempel.
+                        </p>
+                    </div>
+                    <div class="md:col-span-5 bg-[#001e2b] text-white rounded-[2rem] p-10 shadow-lg relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        <div class="relative z-10 flex flex-col h-full justify-center">
+                            <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-[#7dd0ff] mb-6 backdrop-blur-sm">
+                                <span class="material-symbols-outlined text-3xl" data-icon="insights">insights</span>
+                            </div>
+                            <h3 class="font-headline font-bold text-2xl mb-3">Directe Waarde</h3>
+                            <p class="text-white/80 text-base leading-relaxed">
+                                Direct zichtbaar per tool: staat deze al in de organisatiecatalogus of is dit een nieuwe ontdekking voor de DPO.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-7 bg-white rounded-[2rem] p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(185,3,96,0.06)] transition-shadow duration-500 flex flex-col sm:flex-row gap-8 items-center justify-between">
+                        <div class="flex-1">
+                            <div class="w-14 h-14 rounded-2xl bg-[#ffebf0] flex items-center justify-center text-[#b90360] mb-6">
+                                <span class="material-symbols-outlined text-3xl" data-icon="donut_small">donut_small</span>
+                            </div>
+                            <h3 class="font-headline font-bold text-2xl text-on-surface mb-3">Risicoprofiel</h3>
+                            <p class="text-on-surface-variant text-base leading-relaxed">
+                                Drie eenvoudige vragen genereren op de achtergrond een risicoscore (0–100) en de juiste EU AI Act-risicoklasse per medewerker.
+                            </p>
+                        </div>
+                        <div class="w-32 h-32 rounded-full border-[8px] border-surface-container-low flex items-center justify-center flex-shrink-0 relative">
+                             <svg class="absolute inset-0 w-full h-full -rotate-90 text-error" viewBox="0 0 36 36">
+                                <path stroke-dasharray="60, 100" class="stroke-current" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            </svg>
+                            <span class="font-headline font-bold text-2xl text-on-surface">60<span class="text-sm text-on-surface-variant">/100</span></span>
+                        </div>
+                    </div>
+                    <div class="md:col-span-12 bg-gradient-to-r from-[#f7fafc] to-[#f1f4f6] rounded-[2rem] p-8 md:p-12 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-8 border border-white/60">
+                        <div class="max-w-2xl">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-12 h-12 rounded-full bg-[#fef08a] flex items-center justify-center text-[#ca8a04]">
+                                    <span class="material-symbols-outlined text-2xl" data-icon="social_leaderboard">social_leaderboard</span>
+                                </div>
+                                <h3 class="font-headline font-bold text-2xl text-on-surface">Gamificatie & Badges</h3>
+                            </div>
+                            <p class="text-on-surface-variant text-base leading-relaxed">
+                                Medewerkers verdienen badges zoals <strong>'AI Scout'</strong> of <strong>'Early Adopter'</strong>. Deelname voelt als een beloning voor innovatie, niet als controle door IT.
+                            </p>
+                        </div>
+                        <div class="flex gap-4 flex-shrink-0">
+                            <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center border-2 border-primary/20 hover:scale-110 transition-transform duration-300">
+                                <span class="material-symbols-outlined text-3xl text-primary" data-icon="local_police">local_police</span>
+                            </div>
+                            <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center border-2 border-tertiary/20 hover:scale-110 transition-transform duration-300 delay-75">
+                                <span class="material-symbols-outlined text-3xl text-tertiary" data-icon="rocket_launch">rocket_launch</span>
+                            </div>
+                            <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center border-2 border-[#ca8a04]/20 hover:scale-110 transition-transform duration-300 delay-150">
+                                <span class="material-symbols-outlined text-3xl text-[#ca8a04]" data-icon="workspace_premium">workspace_premium</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 bg-surface-container-lowest" id="tarieven">
+            <div class="max-w-[1200px] mx-auto">
+                <div class="text-center mb-16">
+                    <span class="inline-block py-1 px-3 rounded-full bg-brand-green-light text-brand-green-accent text-[10px] font-bold uppercase tracking-widest mb-4">Tarieven</span>
+                    <h2 class="text-4xl md:text-5xl font-headline font-extrabold text-on-surface tracking-tight mb-6">Kies het pakket dat past bij uw organisatie</h2>
+                    <p class="text-xl text-on-surface-variant max-w-2xl mx-auto font-normal leading-relaxed">
+                        De Shadow AI Scan is een doorlopend governance-instrument, geen eenmalige audit. 
+                        Kies uit vier pakketten — van instap tot schaalbaar abonnement.
+                    </p>
+                    <div class="mt-12 flex items-center justify-center gap-4">
+                        <span id="monthly-label" class="text-sm font-bold text-on-surface">Maandelijks</span>
+                        <button id="billing-toggle" class="relative w-14 h-8 rounded-full bg-ui-blue-grey/20 transition-colors duration-300 focus:outline-none shadow-inner">
+                            <div id="toggle-dot" class="absolute left-1 top-1 w-6 h-6 rounded-full bg-white shadow-md transition-transform duration-300"></div>
+                        </button>
+                        <span id="yearly-label" class="text-sm font-medium text-ui-blue-grey flex items-center gap-2">
+                            Jaarlijks <span class="text-[10px] bg-brand-green-light text-brand-green-accent px-2 py-0.5 rounded-full font-bold">2 MAANDEN GRATIS</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+                    <div class="relative bg-white rounded-[2.5rem] p-8 border border-ui-blue-grey/10 shadow-sm flex flex-col transition-all hover:shadow-md">
+                        <div class="mb-8">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-ui-blue-grey">Instap · Eenmalig</span>
+                            <h3 class="text-2xl font-headline font-bold text-on-surface mt-2">Snapshot</h3>
+                            <div class="mt-4 flex items-baseline gap-1">
+                                <span class="text-4xl font-black text-on-surface">€990</span>
+                                <span class="text-ui-blue-grey text-sm font-medium">eenmalig</span>
+                            </div>
+                            <p class="text-xs text-ui-blue-grey mt-2 italic">Scan actief gedurende 30 dagen. Geen abonnement.</p>
+                        </div>
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-brand-green-accent text-lg leading-none">check_circle</span> Tot 50 medewerkers</li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-brand-green-accent text-lg leading-none">check_circle</span> Eenmalig DPO-rapport</li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-brand-green-accent text-lg leading-none">check_circle</span> Audit-Ready export (CSV)</li>
+                            <li class="flex items-start gap-3 text-sm text-ui-blue-grey/50 italic"><span class="material-symbols-outlined text-lg leading-none">block</span> Geen live dashboard</li>
+                        </ul>
+                        <button class="w-full py-4 rounded-2xl bg-surface-container-high text-on-surface font-bold text-sm hover:bg-surface-container-highest transition-colors">Start met Snapshot</button>
+                        <p class="text-[10px] text-ui-blue-grey mt-4 leading-tight">Upgrade binnen 30 dagen? De €990 wordt verrekend bij een jaarcontract.</p>
+                    </div>
+                    <div class="bg-white rounded-[2.5rem] p-8 border border-ui-blue-grey/10 shadow-sm flex flex-col transition-all hover:shadow-md">
+                        <div class="mb-8">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-ui-blue-grey">Abonnement</span>
+                            <h3 class="text-2xl font-headline font-bold text-on-surface mt-2">Starter</h3>
+                            <div class="mt-4">
+                                <span class="text-4xl font-black text-on-surface billing-price" data-monthly="€490" data-yearly="€4.900">€490</span>
+                                <span class="text-ui-blue-grey text-sm font-medium billing-period">/maand</span>
+                            </div>
+                            <p class="text-xs text-ui-blue-grey mt-2">Tot 25 medewerkers</p>
+                        </div>
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-brand-green-accent text-lg leading-none">check_circle</span> Shadow AI Scan (doorlopend)</li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-brand-green-accent text-lg leading-none">check_circle</span> Live DPO-dashboard</li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-brand-green-accent text-lg leading-none">check_circle</span> EU AI Act classificatie</li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-brand-green-accent text-lg leading-none">check_circle</span> Notificatie bij nieuwe tools</li>
+                        </ul>
+                        <button class="w-full py-4 rounded-2xl border-2 border-on-surface text-on-surface font-bold text-sm hover:bg-on-surface hover:text-white transition-all">Start Starter</button>
+                    </div>
+                    <div class="relative bg-white rounded-[2.5rem] p-8 border-2 border-primary shadow-xl flex flex-col scale-105 z-10 transition-transform hover:scale-[1.07]">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap py-1.5 px-4 rounded-full bg-gradient-to-r from-primary to-primary-container text-white font-bold text-[10px] uppercase tracking-widest shadow-lg">Meest gekozen</div>
+                        <div class="mb-8">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-primary">Abonnement</span>
+                            <h3 class="text-2xl font-headline font-bold text-on-surface mt-2">Business</h3>
+                            <div class="mt-4">
+                                <span class="text-4xl font-black text-on-surface billing-price" data-monthly="€990" data-yearly="€9.900">€990</span>
+                                <span class="text-ui-blue-grey text-sm font-medium billing-period">/maand</span>
+                            </div>
+                            <p class="text-xs text-ui-blue-grey mt-2">26–100 medewerkers</p>
+                        </div>
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-start gap-3 text-sm text-on-surface font-bold"><span class="material-symbols-outlined text-primary text-lg leading-none">verified</span> Alles uit Starter, plus:</li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-brand-green-accent text-lg leading-none">check_circle</span> AI Awareness Module</li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-brand-green-accent text-lg leading-none">check_circle</span> AI Literacy (25 seats)</li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-brand-green-accent text-lg leading-none">check_circle</span> Prioriteits-support</li>
+                        </ul>
+                        <button class="w-full py-4 rounded-2xl bg-primary text-white font-bold text-sm hover:bg-primary-container hover:text-primary transition-all shadow-lg shadow-primary/20">Kies Business</button>
+                    </div>
+                    <div class="bg-white rounded-[2.5rem] p-8 border border-ui-blue-grey/10 shadow-sm flex flex-col transition-all hover:shadow-md">
+                        <div class="mb-8">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-ui-blue-grey">Abonnement</span>
+                            <h3 class="text-2xl font-headline font-bold text-on-surface mt-2">Scale</h3>
+                            <div class="mt-4">
+                                <span class="text-4xl font-black text-on-surface billing-price" data-monthly="€1.890" data-yearly="€18.900">€1.890</span>
+                                <span class="text-ui-blue-grey text-sm font-medium billing-period">/maand</span>
+                            </div>
+                            <p class="text-xs text-ui-blue-grey mt-2">101–250 medewerkers</p>
+                        </div>
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-start gap-3 text-sm text-on-surface font-bold"><span class="material-symbols-outlined text-ui-blue-grey text-lg leading-none">add_circle</span> Alles uit Business, plus:</li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-brand-green-accent text-lg leading-none">check_circle</span> Begeleide DPO Onboarding</li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-brand-green-accent text-lg leading-none">check_circle</span> Custom amnestie-configuratie</li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-brand-green-accent text-lg leading-none">check_circle</span> Persoonlijke Onboarding-call</li>
+                        </ul>
+                        <button class="w-full py-4 rounded-2xl bg-on-surface text-white font-bold text-sm hover:opacity-90 transition-opacity">Neem contact op</button>
+                    </div>
+                </div>
+                <div class="mt-16 border-t border-ui-blue-grey/10 pt-8 max-w-[1000px] mx-auto text-center">
+                    <p class="text-[11px] text-ui-blue-grey uppercase tracking-wider font-medium">
+                        Alle prijzen excl. btw &nbsp;·&nbsp; 
+                        Jaarcontract = 10 maanden betalen, 12 maanden toegang &nbsp;·&nbsp; 
+                        Zelfrapportage-instrument - geen netwerk­monitoring, geen software-installatie
+                    </p>
+                    <p class="text-[11px] text-ui-blue-grey/70 italic mt-3 leading-relaxed">
+                        Shadow AI is geen eenmalige audit. Medewerkers komen en gaan, tools veranderen, de EU AI Act evolueert. Een abonnement geeft u een levend dashboard — geen historisch document. 
+                        &nbsp;·&nbsp; 
+                        <span class="not-italic font-medium text-ui-blue-grey">Publieke sector? Vraag naar de EDIH-pilotprijs: €8.000 / 6 maanden, tot 50% co-financiering.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-32 px-6 bg-surface-container-low">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="mb-12 inline-block">
+                    <img alt="Portrait" class="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg mx-auto" data-alt="Professional woman portrait in circular organic frame" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop"/>
+                </div>
+                <blockquote class="text-3xl md:text-4xl font-headline font-bold text-on-surface leading-tight mb-8">
+                    "De Shadow AI Scan was de eerste keer dat onze medewerkers zich niet gecontroleerd voelden, maar juist empowered. Het gaf ons de rust om AI veilig te schalen."
+                </blockquote>
+                <cite class="not-italic">
+                    <span class="block text-xl font-bold">Sarah de Vries</span>
+                    <span class="text-on-surface-variant">CTO bij Lumen Logistics</span>
+                </cite>
+            </div>
+        </section>
+
+        <section class="relative py-32 px-6 bg-surface-container-lowest overflow-hidden" id="faq">
+            <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary/5 rounded-full blur-[80px] pointer-events-none"></div>
+            <div class="max-w-[1280px] mx-auto relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-20 items-start">
+                    <div class="md:col-span-4 md:sticky md:top-32">
+                        <span class="inline-block py-1.5 px-4 rounded-full bg-primary/10 text-primary font-bold tracking-[0.05em] uppercase text-xs mb-6 shadow-sm">
+                            FAQ
+                        </span>
+                        <h2 class="text-4xl md:text-5xl font-headline font-extrabold text-on-surface tracking-tight leading-tight mb-6">
+                            Veelgestelde <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-tertiary">vragen</span>
+                        </h2>
+                        <p class="text-lg text-on-surface-variant leading-relaxed">
+                            Heeft u nog vragen over de implementatie of privacy rondom de Shadow AI Scan? Hier vindt u de belangrijkste antwoorden.
+                        </p>
+                    </div>
+                    <div class="md:col-span-8 flex flex-col gap-5">
+                        <details class="group bg-white border border-outline-variant/30 rounded-[1.5rem] p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-[0_12px_36px_rgba(0,101,139,0.06)] open:border-primary/40 open:shadow-[0_16px_40px_rgba(0,101,139,0.08)] [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex justify-between items-center cursor-pointer font-headline font-bold text-lg text-on-surface group-open:text-primary transition-colors duration-300 gap-4">
+                                <span class="flex-1">Is de implementatie van de Shadow AI Scan ingewikkeld voor IT?</span>
+                                <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors duration-300">
+                                    <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-open:hidden transition-colors">add</span>
+                                    <span class="material-symbols-outlined text-primary hidden group-open:block">remove</span>
+                                </div>
+                            </summary>
+                            <div class="mt-5 pt-5 border-t border-outline-variant/20 text-on-surface-variant text-base leading-relaxed font-medium">
+                                Nee. De Shadow AI Scan werkt volledig zonder IT-installatie. Medewerkers ontvangen een persoonlijke uitnodigingslink en doorlopen de scan in 20–25 minuten via de browser. Geen app, geen plugin, geen koppeling met bestaande systemen vereist. De DPO ziet resultaten zodra medewerkers de scan invullen - voor kleinere teams doorgaans binnen 48 uur.
+                            </div>
+                        </details>
+                        <details class="group bg-white border border-outline-variant/30 rounded-[1.5rem] p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-[0_12px_36px_rgba(0,101,139,0.06)] open:border-primary/40 open:shadow-[0_16px_40px_rgba(0,101,139,0.08)] [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex justify-between items-center cursor-pointer font-headline font-bold text-lg text-on-surface group-open:text-primary transition-colors duration-300 gap-4">
+                                <span class="flex-1">Kijken jullie mee met wat medewerkers typen? Hoe zit het met de AVG?</span>
+                                <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors duration-300">
+                                    <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-open:hidden transition-colors">add</span>
+                                    <span class="material-symbols-outlined text-primary hidden group-open:block">remove</span>
+                                </div>
+                            </summary>
+                            <div class="mt-5 pt-5 border-t border-outline-variant/20 text-on-surface-variant text-base leading-relaxed font-medium">
+                                De Shadow AI Scan leest geen prompts, bestanden of berichtinhoud mee — de tool vraagt medewerkers zelf welke tools zij gebruiken. De scan is benoemd: de DPO ziet per medewerker welke tools zijn opgegeven. Dit is een bewuste keuze — anonieme data geeft een thermometer, benoemde data geeft een röntgenfoto waarmee de DPO gericht kan handelen. Het amnestievenster neutraliseert het disclosure-risico voor de medewerker. De verwerking van persoonsgegevens is gedocumenteerd in onze verwerkersovereenkomst.
+                            </div>
+                        </details>
+                        <details class="group bg-white border border-outline-variant/30 rounded-[1.5rem] p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-[0_12px_36px_rgba(0,101,139,0.06)] open:border-primary/40 open:shadow-[0_16px_40px_rgba(0,101,139,0.08)] [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex justify-between items-center cursor-pointer font-headline font-bold text-lg text-on-surface group-open:text-primary transition-colors duration-300 gap-4">
+                                <span class="flex-1">Mijn team gebruikt nog nauwelijks AI. Is een scan dan wel nodig?</span>
+                                <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors duration-300">
+                                    <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-open:hidden transition-colors">add</span>
+                                    <span class="material-symbols-outlined text-primary hidden group-open:block">remove</span>
+                                </div>
+                            </summary>
+                            <div class="mt-5 pt-5 border-t border-outline-variant/20 text-on-surface-variant text-base leading-relaxed font-medium">
+                                Uit de praktijk blijkt dat medewerkers gemiddeld 3 tot 4 keer meer 'Schaduw-AI' gebruiken dan het management denkt. Vaak met de beste bedoelingen om sneller te werken, maar met aanzienlijke risico's voor bedrijfsdata. Met de Shadow AI Scan krijgt u een glasheldere nulmeting. Juist als u nog aan het begin van uw AI-transitie staat, voorkomt u dat gevoelige data ongemerkt weglekt.
+                            </div>
+                        </details>
+                        <details class="group bg-white border border-outline-variant/30 rounded-[1.5rem] p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-[0_12px_36px_rgba(0,101,139,0.06)] open:border-primary/40 open:shadow-[0_16px_40px_rgba(0,101,139,0.08)] [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex justify-between items-center cursor-pointer font-headline font-bold text-lg text-on-surface group-open:text-primary transition-colors duration-300 gap-4">
+                                <span class="flex-1">Wat als onze organisatie snel groeit?</span>
+                                <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors duration-300">
+                                    <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-open:hidden transition-colors">add</span>
+                                    <span class="material-symbols-outlined text-primary hidden group-open:block">remove</span>
+                                </div>
+                            </summary>
+                            <div class="mt-5 pt-5 border-t border-outline-variant/20 text-on-surface-variant text-base leading-relaxed font-medium">
+                                Gefeliciteerd met uw groei! De Shadow AI Scan schaalt moeiteloos met u mee. Zodra u structureel een nieuwe drempel passeert, ontvangt u een upgrade-voorstel. U kunt op elk moment soepel opschalen, zonder data te verliezen of instellingen opnieuw te hoeven configureren.
+                            </div>
+                        </details>
+                        <details class="group bg-white border border-outline-variant/30 rounded-[1.5rem] p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-[0_12px_36px_rgba(0,101,139,0.06)] open:border-primary/40 open:shadow-[0_16px_40px_rgba(0,101,139,0.08)] [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex justify-between items-center cursor-pointer font-headline font-bold text-lg text-on-surface group-open:text-primary transition-colors duration-300 gap-4">
+                                <span class="flex-1">Wat houdt de 'EU AI Act classificatie' precies in?</span>
+                                <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors duration-300">
+                                    <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-open:hidden transition-colors">add</span>
+                                    <span class="material-symbols-outlined text-primary hidden group-open:block">remove</span>
+                                </div>
+                            </summary>
+                            <div class="mt-5 pt-5 border-t border-outline-variant/20 text-on-surface-variant text-base leading-relaxed font-medium">
+                                De Europese AI Act deelt AI-systemen in op basis van risico's. Bepaalde tools mogen vrij gebruikt worden, terwijl andere strenge documentatie vereisen of zelfs verboden zijn. In plaats van dat u dit handmatig per tool moet uitzoeken, classificeert ons dashboard automatisch het risiconiveau van elke door medewerkers gerapporteerde AI-tool in uw bedrijf. Zo bent u altijd proactief en 'audit-ready'.
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="relative py-24 px-6 overflow-hidden bg-surface-container-lowest" id="cta">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-error/5 rounded-full blur-[100px] pointer-events-none"></div>
+            <div class="max-w-4xl mx-auto relative z-10 text-center">
+                <div class="bg-white rounded-[2.5rem] p-10 md:p-14 border border-white shadow-[0_24px_50px_rgba(0,101,139,0.06)] hover:shadow-[0_30px_60px_rgba(0,101,139,0.12)] transition-shadow duration-500">
+                    <span class="inline-block py-1.5 px-4 rounded-full bg-error/10 text-error font-bold tracking-[0.05em] uppercase text-xs mb-6 shadow-sm">
+                        Neem de regie terug
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-headline font-extrabold text-on-surface tracking-tight leading-tight mb-6">
+                        Wacht niet tot Shadow AI een <span class="text-primary">beveiligingslek</span> wordt.
+                    </h2>
+                    <p class="text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed mb-10 font-medium">
+                        Krijg binnen 48 uur feitelijke zekerheid over uw AI-landschap. Plan een korte kennismaking om de tool te zien, of bekijk direct de output.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                        <a href="#demo-link-hier" class="w-full sm:w-auto px-8 py-4 rounded-full bg-primary text-white font-bold text-lg hover:bg-[#004c6a] hover:shadow-[0_12px_24px_rgba(0,101,139,0.25)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 group">
+                            <span class="material-symbols-outlined text-[22px] group-hover:scale-110 transition-transform">calendar_month</span>
+                            Plan demo in
+                        </a>
+                        <a href="#" class="open-download-btn w-full sm:w-auto px-8 py-4 rounded-full bg-surface text-on-surface font-bold text-lg shadow-sm border border-outline-variant/30 hover:bg-white hover:border-primary/30 hover:text-primary hover:shadow-md transition-all duration-300 flex items-center justify-center gap-2 group">
+                            <span class="material-symbols-outlined text-[22px] text-on-surface-variant group-hover:text-primary transition-colors">download</span>
+                            Download voorbeeld
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <shared-footer></shared-footer>
+
+    <div id="download-modal" class="fixed inset-0 z-[100] flex items-center justify-center hidden px-4">
+        <div id="modal-backdrop" class="absolute inset-0 bg-[#001e2b]/40 backdrop-blur-sm opacity-0 transition-opacity duration-300 cursor-pointer"></div>
+        <div id="modal-content" class="relative bg-white rounded-[2.5rem] p-8 md:p-12 max-w-lg w-full shadow-[0_24px_50px_rgba(0,101,139,0.15)] opacity-0 scale-95 transition-all duration-300 z-10">
+            <button id="close-modal" class="absolute top-6 right-6 w-10 h-10 bg-surface rounded-full flex items-center justify-center text-on-surface-variant hover:bg-error/10 hover:text-error transition-colors duration-200">
+                <span class="material-symbols-outlined text-xl">close</span>
+            </button>
+            <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
+                <span class="material-symbols-outlined text-3xl text-primary" data-icon="description">description</span>
+            </div>
+            <h3 class="text-2xl font-headline font-extrabold text-on-surface mb-3 tracking-tight">
+                Bekijk een voorbeeldrapport
+            </h3>
+            <p class="text-base text-on-surface-variant leading-relaxed mb-8">
+                Laat uw e-mailadres achter en ontvang direct een geanonimiseerd Audit-Ready Rapport in uw inbox. Ontdek precies welke inzichten de scan oplevert.
+            </p>
+            <form action="#" method="POST" class="flex flex-col gap-4">
+                <div class="relative">
+                    <span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-on-surface-variant/50">mail</span>
+                    <input type="email" placeholder="Uw zakelijke e-mailadres" required
+                        class="w-full bg-surface-container-high text-on-surface placeholder:text-on-surface-variant/60 rounded-full py-4 pl-14 pr-6 border-2 border-transparent focus:bg-white focus:border-primary/20 focus:ring-0 transition-all duration-300 outline-none">
+                </div>
+                <button type
