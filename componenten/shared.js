@@ -5,9 +5,10 @@ class SharedHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-2 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl rounded-full mt-6 mx-4 md:mx-auto max-w-4xl shadow-2xl shadow-sky-900/10">
+        
         <div class="flex items-center gap-3">
           <span class="material-symbols-outlined text-sky-900" data-icon="grid_view">grid_view</span>
-          <span class="text-xl font-black text-sky-900 tracking-tight font-headline">CuratorKit</span>
+          <span class="text-xl font-black text-sky-900 tracking-tight font-headline">AI Ready Kit</span>
         </div>
         
         <nav class="hidden md:flex gap-8 items-center">
@@ -18,23 +19,23 @@ class SharedHeader extends HTMLElement {
               <span class="material-symbols-outlined text-sm transition-transform duration-200 group-hover:rotate-180">arrow_drop_down</span>
             </button>
             
-            <div class="absolute top-[80%] left-0 w-64 bg-slate-900 text-slate-300 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-slate-700 overflow-hidden flex flex-col py-2 mt-2">
-              <a href="#" class="px-5 py-3 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium">Shadow AI Survey</a>
-              <a href="#" class="px-5 py-3 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium">RouteAI</a>
-              <a href="#" class="px-5 py-3 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium">AISA — AI Skills Accelerator</a>
-              <a href="#" class="px-5 py-3 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium">HR Module</a>
-              <a href="#" class="px-5 py-3 hover:text-white hover:bg-slate-800 transition-colors text-sm font-medium">EU AI Act Ready Kit</a>
+            <div class="absolute top-[80%] left-0 w-72 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl text-sky-900 dark:text-slate-300 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col py-3 mt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 origin-top">
+              <a href="#" class="px-5 py-3 hover:bg-sky-100/50 dark:hover:bg-slate-800 transition-colors text-sm font-medium">Shadow AI Survey</a>
+              <a href="#" class="px-5 py-3 hover:bg-sky-100/50 dark:hover:bg-slate-800 transition-colors text-sm font-medium">RouteAI</a>
+              <a href="#" class="px-5 py-3 hover:bg-sky-100/50 dark:hover:bg-slate-800 transition-colors text-sm font-medium">AISA — AI Skills Accelerator</a>
+              <a href="#" class="px-5 py-3 hover:bg-sky-100/50 dark:hover:bg-slate-800 transition-colors text-sm font-medium">HR Module</a>
+              <a href="#" class="px-5 py-3 hover:bg-sky-100/50 dark:hover:bg-slate-800 transition-colors text-sm font-medium">EU AI Act Ready Kit</a>
             </div>
           </div>
 
-          <a class="text-slate-500 hover:text-sky-600 transition-colors font-medium" href="#">Insights</a>
-          <a class="text-slate-500 hover:text-sky-600 transition-colors font-medium" href="#">Over</a>
-          <a class="text-slate-500 hover:text-sky-600 transition-colors font-medium" href="#">Contact</a>
+          <a class="text-slate-600 dark:text-slate-400 hover:text-sky-600 transition-colors font-medium" href="#">Insights</a>
+          <a class="text-slate-600 dark:text-slate-400 hover:text-sky-600 transition-colors font-medium" href="#">Over</a>
+          <a class="text-slate-600 dark:text-slate-400 hover:text-sky-600 transition-colors font-medium" href="#">Contact</a>
         </nav>
         
         <div class="flex items-center gap-2">
-          <button class="hidden md:block bg-primary text-on-primary px-6 py-2 rounded-full font-bold scale-95 active:scale-90 transition-transform duration-200">
-            Try Free
+          <button class="hidden md:block bg-primary text-on-primary px-6 py-2 rounded-full font-bold hover:bg-primary-container transition-all scale-95 active:scale-90 shadow-lg shadow-primary/20">
+            Demo aanvragen
           </button>
           
           <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center p-2 text-sky-900 hover:bg-sky-900/10 rounded-full transition-colors cursor-pointer" aria-label="Toggle menu">
@@ -59,8 +60,8 @@ class SharedHeader extends HTMLElement {
           <a class="text-slate-600 dark:text-slate-400 hover:text-sky-600 font-medium text-lg border-b border-slate-100 dark:border-slate-800 py-3" href="#">Over</a>
           <a class="text-slate-600 dark:text-slate-400 hover:text-sky-600 font-medium text-lg border-b border-slate-100 dark:border-slate-800 py-3" href="#">Contact</a>
           
-          <button class="w-full bg-primary text-on-primary px-6 py-4 rounded-full font-bold mt-4 hover:bg-primary-container transition-colors active:scale-95">
-            Try Free
+          <button class="w-full bg-primary text-on-primary px-6 py-4 rounded-full font-bold mt-4 hover:bg-primary-container transition-colors active:scale-95 shadow-lg shadow-primary/20">
+            Demo aanvragen
           </button>
         </div>
       </header>
@@ -93,31 +94,35 @@ class SharedFooter extends HTMLElement {
         <div class="max-w-7xl mx-auto px-4">
           <div class="grid grid-cols-1 md:grid-cols-4 border-t border-slate-200 dark:border-slate-700">
             
-            <div class="py-8 md:pr-8 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-700">
-              <img src="https://insights.digidactics.nl/content/images/2026/03/Logo-without-bg.png" alt="Digidactics Logo" class="h-8 mb-6">
-              <p class="text-slate-500 max-w-xs">Wij transformeren regelgeving in strategisch voordeel.</p>
+            <div class="py-12 md:pr-8 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-700 flex flex-col items-start gap-4">
+              <img src="https://insights.digidactics.nl/content/images/2026/03/Logo-without-bg.png" alt="Digidactics Logo" class="h-8 mb-4">
+              
+              <p class="text-slate-500 max-w-xs leading-relaxed text-sm">
+                AI governance & capability building voor zakelijke professionals.<br>
+                Systematisch. Uitlegbaar. Proportioneel.
+              </p>
             </div>
 
-            <div class="py-8 md:px-8 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-700">
+            <div class="py-12 md:px-8 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-700">
               <h5 class="font-bold text-primary mb-6">Producten</h5>
-              <ul class="space-y-2 text-slate-500">
+              <ul class="space-y-2 text-slate-500 text-sm">
                 <li><a class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4" href="#">Shadow AI Scan</a></li>
                 <li><a class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4" href="#">RouteAI</a></li>
                 <li><a class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4" href="#">AI Skills Accelerator</a></li>
               </ul>
             </div>
 
-            <div class="py-8 md:px-8 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-700">
+            <div class="py-12 md:px-8 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-700">
               <h5 class="font-bold text-primary mb-6">Bedrijf</h5>
-              <ul class="space-y-2 text-slate-500">
+              <ul class="space-y-2 text-slate-500 text-sm">
                 <li><a class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4" href="#">Over ons</a></li>
                 <li><a class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4" href="#">Contact</a></li>
               </ul>
             </div>
 
-            <div class="py-8 md:pl-8">
+            <div class="py-12 md:pl-8">
               <h5 class="font-bold text-primary mb-6">Juridisch</h5>
-              <ul class="space-y-2 text-slate-500">
+              <ul class="space-y-2 text-slate-500 text-sm">
                 <li><a class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4" href="#">Privacy Policy</a></li>
                 <li><a class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4" href="#">Terms of Service</a></li>
                 <li><a class="hover:underline decoration-[#b9025f] decoration-2 underline-offset-4" href="#">Cookie Instellingen</a></li>
